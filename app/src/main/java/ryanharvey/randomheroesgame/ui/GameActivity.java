@@ -1,7 +1,8 @@
-package ryanharvey.randomheroesgame;
+package ryanharvey.randomheroesgame.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,6 +10,9 @@ import java.util.ArrayList;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+import ryanharvey.randomheroesgame.GameService;
+import ryanharvey.randomheroesgame.Models.Hero;
+import ryanharvey.randomheroesgame.R;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -28,7 +32,7 @@ public class GameActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 ArrayList<Hero> heroes = gs.processHeroes(response);
                 for(Hero hero : heroes){
-
+                    Log.d("TEST", hero.getPrimaryName());
                 }
             }
         });

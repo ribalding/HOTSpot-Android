@@ -1,4 +1,4 @@
-package ryanharvey.randomheroesgame;
+package ryanharvey.randomheroesgame.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import ryanharvey.randomheroesgame.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-
+        generateButton.setOnClickListener(this);
     }
 
     @Override
