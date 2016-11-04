@@ -59,18 +59,4 @@ public class Hero {
     public void setSubGroup(String subGroup) {
         this.subGroup = subGroup;
     }
-//
-//    public static Hero createHeroFromJSONObject(JSONObject jsonObject){
-//        try {
-//            String name = jsonObject.getString("PrimaryName");
-//            String imageURL = jsonObject.getString("ImageURL");
-//            String attributeName = jsonObject.getString("AttributeName");
-//            String group = jsonObject.getString("Group");
-//            String subGroup = jsonObject.getString("SubGroup");
-//            Hero newHero = new Hero(name, imageURL, attributeName, group, subGroup);
-//            return newHero;
-//        } catch (Exception e){
-//        }
-//
-//    }
 }

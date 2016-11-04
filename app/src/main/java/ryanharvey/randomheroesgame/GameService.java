@@ -88,6 +88,11 @@ public class GameService {
         return team;
     }
 
+    public GameMap generateRandomMap(ArrayList<GameMap> allMaps){
+        int randomNumber = this.generateRandomNumber(allMaps.size());
+        return allMaps.get(randomNumber);
+    }
+
     public int generateRandomNumber(int max){
         Random rand = new Random();
         return rand.nextInt(max) + 1;
