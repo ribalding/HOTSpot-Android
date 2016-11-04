@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.GameOptionsActivity"
+    android:background="@color/colorPrimaryDark"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heroSpinner1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:padding="6dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heroSpinner2"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:padding="6dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/heroSpinner5"
+        android:layout_toEndOf="@+id/heroSpinner5" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heroSpinner3"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/heroSpinner1"
+        android:layout_toEndOf="@+id/heroSpinner1"
+        android:padding="6dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heroSpinner4"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:padding="6dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/heroSpinner3"
+        android:layout_toEndOf="@+id/heroSpinner3" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heroSpinner5"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/heroSpinner4"
+        android:layout_toEndOf="@+id/heroSpinner4"
+        android:padding="6dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team A"
+        android:id="@+id/teamATextView"
+        android:textColor="#eaeaea"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_below="@+id/heroSpinner3"
+        android:layout_toRightOf="@+id/heroSpinner6"
+        android:layout_toEndOf="@+id/heroSpinner6"
+        android:layout_marginTop="5dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heroSpinner10"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:padding="6dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heroSpinner9"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:padding="6dp"
+        android:layout_alignBottom="@+id/heroSpinner10"
+        android:layout_toLeftOf="@+id/heroSpinner10"
+        android:layout_toStartOf="@+id/heroSpinner10" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heroSpinner8"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:padding="6dp"
+        android:layout_alignTop="@+id/heroSpinner9"
+        android:layout_toLeftOf="@+id/heroSpinner9"
+        android:layout_toStartOf="@+id/heroSpinner9" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heroSpinner7"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:padding="6dp"
+        android:layout_alignBottom="@+id/heroSpinner8"
+        android:layout_toLeftOf="@+id/heroSpinner8"
+        android:layout_toStartOf="@+id/heroSpinner8" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heroSpinner6"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:padding="6dp"
+        android:layout_alignBottom="@+id/heroSpinner7"
+        android:layout_toLeftOf="@+id/heroSpinner7"
+        android:layout_toStartOf="@+id/heroSpinner7" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team B"
+        android:id="@+id/teamBTextView"
+        android:textColor="#eaeaea"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_above="@+id/heroSpinner10"
+        android:layout_toRightOf="@+id/heroSpinner4"
+        android:layout_toEndOf="@+id/heroSpinner4"
+        android:layout_marginBottom="5dp" />
+</RelativeLayout>
