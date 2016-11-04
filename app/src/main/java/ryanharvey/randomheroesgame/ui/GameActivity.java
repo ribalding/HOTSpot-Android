@@ -31,8 +31,9 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 ArrayList<Hero> heroes = gs.processHeroes(response);
-                for(Hero hero : heroes){
-                    Log.d("TEST", hero.getPrimaryName());
+                ArrayList<Hero> team = gs.generateRandomTeam(heroes);
+                for(int i = 0; i < team.size(); i++){
+                    Log.d("TEST", team.get(i).getPrimaryName());
                 }
             }
         });
