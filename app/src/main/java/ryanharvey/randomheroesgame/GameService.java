@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import okhttp3.Call;
@@ -96,5 +97,14 @@ public class GameService {
     public int generateRandomNumber(int max){
         Random rand = new Random();
         return rand.nextInt(max) + 1;
+    }
+
+    public ArrayList<String> getAllHeroNames(ArrayList<Hero> heroes){
+        ArrayList<String> heroNames = new ArrayList<>();
+        heroNames.add("None");
+        for(Hero hero : heroes){
+            heroNames.add(hero.getPrimaryName());
+        }
+        return heroNames;
     }
 }

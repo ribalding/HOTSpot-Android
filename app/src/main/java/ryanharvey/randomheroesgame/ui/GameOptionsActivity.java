@@ -2,13 +2,15 @@ package ryanharvey.randomheroesgame.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -28,14 +30,21 @@ public class GameOptionsActivity extends AppCompatActivity {
     @Bind(R.id.heroSpinner8) Spinner heroSpinner8;
     @Bind(R.id.heroSpinner9) Spinner heroSpinner9;
     @Bind(R.id.heroSpinner10) Spinner heroSpinner10;
+    @Bind(R.id.mapSelectSpinner) Spinner mapSelectSpinner;
+    @Bind(R.id.submitButton) Button submitButton;
 
     private GameService gs = new GameService();
+    private ArrayList<Hero> allHeroes;
+    private ArrayList<String> allHeroNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_options);
-        gs.getAllHeroes(new Callback() {
+        ButterKnife.bind(this);
+
+        gs.getAllHeroes(new Callback(){
+
             @Override
             public void onFailure(Call call, IOException e) {
 
@@ -43,11 +52,26 @@ public class GameOptionsActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                ArrayList<Hero> heroes = gs.processHeroes(response);
-                ArrayList<Hero> team = gs.generateRandomTeam(heroes);
-                for(int i = 0; i < team.size(); i++){
-                    Log.d("TEST", team.get(i).getPrimaryName());
-                }
+                allHeroes = gs.processHeroes(response);
+                allHeroNames = gs.getAllHeroNames(allHeroes);
+                final ArrayAdapter<String> heroSpinnerAdapter = new ArrayAdapter<>(GameOptionsActivity.this, android.R.layout.simple_spinner_dropdown_item, allHeroNames);
+
+                GameOptionsActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        heroSpinner1.setAdapter(heroSpinnerAdapter);
+                        heroSpinner2.setAdapter(heroSpinnerAdapter);
+                        heroSpinner3.setAdapter(heroSpinnerAdapter);
+                        heroSpinner4.setAdapter(heroSpinnerAdapter);
+                        heroSpinner5.setAdapter(heroSpinnerAdapter);
+                        heroSpinner6.setAdapter(heroSpinnerAdapter);
+                        heroSpinner7.setAdapter(heroSpinnerAdapter);
+                        heroSpinner8.setAdapter(heroSpinnerAdapter);
+                        heroSpinner9.setAdapter(heroSpinnerAdapter);
+                        heroSpinner10.setAdapter(heroSpinnerAdapter);
+                    }
+                });
+
             }
         });
     }
