@@ -78,7 +78,7 @@ public class GameService {
         return maps;
     }
 
-    public ArrayList<Hero> generateRandomTeam(ArrayList<Hero> allHeroes){
+    public ArrayList<Hero> generateCompletelyRandomTeam(ArrayList<Hero> allHeroes){
         ArrayList<Hero> team = new ArrayList<>();
         for(int i = 0; i < 5; i++){
             int randomNumber = this.generateRandomNumber(allHeroes.size());

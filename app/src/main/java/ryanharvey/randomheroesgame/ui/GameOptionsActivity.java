@@ -1,7 +1,9 @@
 package ryanharvey.randomheroesgame.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -19,7 +21,7 @@ import ryanharvey.randomheroesgame.Models.GameMap;
 import ryanharvey.randomheroesgame.Models.Hero;
 import ryanharvey.randomheroesgame.R;
 
-public class GameOptionsActivity extends AppCompatActivity {
+public class GameOptionsActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Bind(R.id.heroSpinner1) Spinner heroSpinner1;
     @Bind(R.id.heroSpinner2) Spinner heroSpinner2;
@@ -45,12 +47,14 @@ public class GameOptionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_options);
         ButterKnife.bind(this);
+        submitButton.setOnClickListener(this);
+
 
         gs.getAllHeroes(new Callback(){
 
             @Override
             public void onFailure(Call call, IOException e) {
-
+                e.printStackTrace();
             }
 
             @Override
@@ -87,7 +91,7 @@ public class GameOptionsActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                ArrayList<GameMap> allMaps = gs.processMaps(response);
+                allMaps = gs.processMaps(response);
                 allMapNames = gs.getAllMapNames(allMaps);
                 final ArrayAdapter<String> mapSpinnerAdapter = new ArrayAdapter<>(GameOptionsActivity.this, android.R.layout.simple_spinner_dropdown_item, allMapNames);
 
@@ -98,8 +102,15 @@ public class GameOptionsActivity extends AppCompatActivity {
                         mapSelectSpinner.setAdapter(mapSpinnerAdapter);
                     }
                 });
-
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == submitButton){
+            Intent intent = new Intent(GameOptionsActivity.this, GameResultsActivity.class);
+            startActivity(intent);
+        }
     }
 }
