@@ -15,6 +15,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 import ryanharvey.randomheroesgame.GameService;
+import ryanharvey.randomheroesgame.Models.GameMap;
 import ryanharvey.randomheroesgame.Models.Hero;
 import ryanharvey.randomheroesgame.R;
 
@@ -36,6 +37,8 @@ public class GameOptionsActivity extends AppCompatActivity {
     private GameService gs = new GameService();
     private ArrayList<Hero> allHeroes;
     private ArrayList<String> allHeroNames;
+    private ArrayList<GameMap> allMaps;
+    private ArrayList<String> allMapNames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,30 @@ public class GameOptionsActivity extends AppCompatActivity {
                         heroSpinner8.setAdapter(heroSpinnerAdapter);
                         heroSpinner9.setAdapter(heroSpinnerAdapter);
                         heroSpinner10.setAdapter(heroSpinnerAdapter);
+                    }
+                });
+
+            }
+        });
+
+        gs.getAllMaps(new Callback(){
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                ArrayList<GameMap> allMaps = gs.processMaps(response);
+                allMapNames = gs.getAllMapNames(allMaps);
+                final ArrayAdapter<String> mapSpinnerAdapter = new ArrayAdapter<>(GameOptionsActivity.this, android.R.layout.simple_spinner_dropdown_item, allMapNames);
+
+                GameOptionsActivity.this.runOnUiThread(new Runnable(){
+
+                    @Override
+                    public void run() {
+                        mapSelectSpinner.setAdapter(mapSpinnerAdapter);
                     }
                 });
 

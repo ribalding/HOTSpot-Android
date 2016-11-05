@@ -4,7 +4,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import okhttp3.Call;
@@ -106,5 +105,14 @@ public class GameService {
             heroNames.add(hero.getPrimaryName());
         }
         return heroNames;
+    }
+
+    public ArrayList<String> getAllMapNames(ArrayList<GameMap> maps){
+        ArrayList<String> mapNames = new ArrayList<>();
+        mapNames.add("None");
+        for(GameMap map : maps){
+            mapNames.add(map.getPrimaryName());
+        }
+        return mapNames;
     }
 }
