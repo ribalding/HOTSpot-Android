@@ -39,15 +39,14 @@
             android:text="Hero 2"
             android:id="@+id/hero2ResultTextView"
             android:textColor="#eaeaea"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/hero1ResultTextView"
-            android:layout_toEndOf="@+id/hero1ResultTextView"
-            android:layout_marginLeft="35dp" />
+            android:layout_below="@+id/hero1ResultTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:id="@+id/textView4"
+            android:id="@+id/centerPointTop"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
 
@@ -57,8 +56,9 @@
             android:text="Hero 3"
             android:id="@+id/hero3ResultTextView"
             android:textColor="#eaeaea"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_below="@+id/hero2ResultTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,10 +66,9 @@
             android:text="Hero 4"
             android:id="@+id/hero4ResultTextView"
             android:textColor="#eaeaea"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/hero3ResultTextView"
-            android:layout_toEndOf="@+id/hero3ResultTextView"
-            android:layout_marginLeft="35dp" />
+            android:layout_below="@+id/hero3ResultTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -77,9 +76,83 @@
             android:text="Hero 5"
             android:id="@+id/hero5ResultTextView"
             android:textColor="#eaeaea"
+            android:layout_below="@+id/hero4ResultTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hero 1"
+            android:id="@+id/hero6ResultTextView"
+            android:textColor="#eaeaea"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hero 2"
+            android:id="@+id/hero7ResultsTextView"
+            android:textColor="#eaeaea"
+            android:layout_below="@+id/hero6ResultTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hero 3"
+            android:id="@+id/hero8ResultsTextView"
+            android:textColor="#eaeaea"
+            android:layout_below="@+id/hero7ResultsTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hero 4"
+            android:id="@+id/hero9ResultsTextView"
+            android:textColor="#eaeaea"
+            android:layout_below="@+id/hero8ResultsTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hero 5"
+            android:id="@+id/hero10ResultsTextView"
+            android:textColor="#eaeaea"
+            android:layout_below="@+id/hero9ResultsTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Team A"
+            android:id="@+id/teamAResultsTextView"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="#eaeaea"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Team B"
+            android:id="@+id/teamBResultsTextView"
+            android:textColor="#eaeaea"
+            android:layout_alignTop="@+id/teamAResultsTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 </RelativeLayout>
