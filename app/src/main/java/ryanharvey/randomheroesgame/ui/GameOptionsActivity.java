@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Switch;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     @Bind(R.id.heroSpinner10) Spinner heroSpinner10;
     @Bind(R.id.mapSelectSpinner) Spinner mapSelectSpinner;
     @Bind(R.id.submitButton) Button submitButton;
+    @Bind(R.id.heroRestrictiveSwitch) Switch heroRestrictiveSwitch;
 
     private GameService gs = new GameService();
     private ArrayList<Hero> allHeroes;
