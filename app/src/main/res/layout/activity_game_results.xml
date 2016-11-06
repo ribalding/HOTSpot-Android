@@ -13,14 +13,14 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:id="@+id/textView3"
+        android:id="@+id/centerPoint"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/textView3"
+        android:layout_above="@+id/centerPoint"
         android:layout_centerHorizontal="true">
 
         <TextView
@@ -94,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hero 2"
-            android:id="@+id/hero7ResultsTextView"
+            android:id="@+id/hero7ResultTextView"
             android:textColor="#eaeaea"
             android:layout_below="@+id/hero6ResultTextView"
             android:layout_alignParentRight="true"
@@ -104,9 +104,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hero 3"
-            android:id="@+id/hero8ResultsTextView"
+            android:id="@+id/hero8ResultTextView"
             android:textColor="#eaeaea"
-            android:layout_below="@+id/hero7ResultsTextView"
+            android:layout_below="@+id/hero7ResultTextView"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
@@ -114,9 +114,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hero 4"
-            android:id="@+id/hero9ResultsTextView"
+            android:id="@+id/hero9ResultTextView"
             android:textColor="#eaeaea"
-            android:layout_below="@+id/hero8ResultsTextView"
+            android:layout_below="@+id/hero8ResultTextView"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
@@ -124,9 +124,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hero 5"
-            android:id="@+id/hero10ResultsTextView"
+            android:id="@+id/hero10ResultTextView"
             android:textColor="#eaeaea"
-            android:layout_below="@+id/hero9ResultsTextView"
+            android:layout_below="@+id/hero9ResultTextView"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 

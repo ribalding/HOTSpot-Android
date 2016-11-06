@@ -25,6 +25,12 @@ public class GameResultsActivity extends AppCompatActivity {
     @Bind(R.id.hero4ResultTextView) TextView hero4ResultTextView;
     @Bind(R.id.hero5ResultTextView) TextView hero5ResultTextView;
 
+    @Bind(R.id.hero6ResultTextView) TextView hero6ResultTextView;
+    @Bind(R.id.hero7ResultTextView) TextView hero7ResultTextView;
+    @Bind(R.id.hero8ResultTextView) TextView hero8ResultTextView;
+    @Bind(R.id.hero9ResultTextView) TextView hero9ResultTextView;
+    @Bind(R.id.hero10ResultTextView) TextView hero10ResultTextView;
+
     private ArrayList<Hero> allHeroes;
     private ArrayList<String> allHeroNames;
     private ArrayList<GameMap> allMaps;
@@ -48,19 +54,31 @@ public class GameResultsActivity extends AppCompatActivity {
                 allHeroes = gs.processHeroes(response);
                 allHeroNames = gs.getAllHeroNames(allHeroes);
                 teamA = gs.generateCompletelyRandomTeam(allHeroes);
+                teamB = gs.generateCompletelyRandomTeam(allHeroes);
 
                 GameResultsActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        hero1ResultTextView.setText(teamA.get(0).getPrimaryName());
-                        hero2ResultTextView.setText(teamA.get(1).getPrimaryName());
-                        hero3ResultTextView.setText(teamA.get(2).getPrimaryName());
-                        hero4ResultTextView.setText(teamA.get(3).getPrimaryName());
-                        hero5ResultTextView.setText(teamA.get(4).getPrimaryName());
+                    setTeamTextViews();
                     }
                 });
             }
         });
+    }
+
+    public void setTeamTextViews(){
+
+            hero1ResultTextView.setText(teamA.get(0).getPrimaryName());
+            hero2ResultTextView.setText(teamA.get(1).getPrimaryName());
+            hero3ResultTextView.setText(teamA.get(2).getPrimaryName());
+            hero4ResultTextView.setText(teamA.get(3).getPrimaryName());
+            hero5ResultTextView.setText(teamA.get(4).getPrimaryName());
+            hero6ResultTextView.setText(teamB.get(0).getPrimaryName());
+            hero7ResultTextView.setText(teamB.get(1).getPrimaryName());
+            hero8ResultTextView.setText(teamB.get(2).getPrimaryName());
+            hero9ResultTextView.setText(teamB.get(3).getPrimaryName());
+            hero10ResultTextView.setText(teamB.get(4).getPrimaryName());
+
     }
 }
 
