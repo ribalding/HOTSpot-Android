@@ -76,7 +76,12 @@ public class GameResultsActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 allMaps = gs.processMaps(response);
                 selectedMap = gs.generateRandomMap(allMaps);
-                setMapResultTextView();
+                GameResultsActivity.this.runOnUiThread(new Runnable(){
+                    @Override
+                    public void run() {
+                        setMapResultTextView();
+                    }
+                });
             }
         });
     }

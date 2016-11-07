@@ -88,6 +88,19 @@ public class GameService {
         return team;
     }
 
+    public ArrayList<Hero> generatePartiallyRandomTeam(ArrayList<Hero> allHeroes, ArrayList<Hero> selectedHeroes){
+        ArrayList<Hero> team = new ArrayList<>();
+        for(Hero hero : selectedHeroes){
+            team.add(hero);
+        }
+        for(int i = 0; i < 5 - selectedHeroes.size(); i++){
+            int randomNumber = this.generateRandomNumber(allHeroes.size());
+            Hero selectedHero = allHeroes.get(randomNumber);
+            team.add(selectedHero);
+        }
+        return team;
+    }
+
     public GameMap generateRandomMap(ArrayList<GameMap> allMaps){
         int randomNumber = this.generateRandomNumber(allMaps.size());
         return allMaps.get(randomNumber);
