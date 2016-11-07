@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -20,9 +21,10 @@ import okhttp3.Response;
 import ryanharvey.randomheroesgame.GameService;
 import ryanharvey.randomheroesgame.Models.GameMap;
 import ryanharvey.randomheroesgame.Models.Hero;
+import ryanharvey.randomheroesgame.Models.Team;
 import ryanharvey.randomheroesgame.R;
 
-public class GameOptionsActivity extends AppCompatActivity implements View.OnClickListener {
+public class GameOptionsActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     @Bind(R.id.heroSpinner1) Spinner heroSpinner1;
     @Bind(R.id.heroSpinner2) Spinner heroSpinner2;
@@ -43,6 +45,11 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     private ArrayList<String> allHeroNames;
     private ArrayList<GameMap> allMaps;
     private ArrayList<String> allMapNames;
+    private boolean teamAIsCompletelyRandom;
+    private Team teamA = new Team();
+    private Team teamB = new Team();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,5 +121,17 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
             Intent intent = new Intent(GameOptionsActivity.this, GameResultsActivity.class);
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {}
+
+    public void setSelectedHero(View spinner, int position){
+
     }
 }
