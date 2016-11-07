@@ -23,6 +23,7 @@ public class GameService {
 
     public GameService(){}
 
+    //Make An HTTP Request to retrieve the entire Heroes JSON Array
     public void getAllHeroes(Callback callback){
         OkHttpClient client = new OkHttpClient.Builder().build();
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.heroesBaseURL).newBuilder();
@@ -32,6 +33,7 @@ public class GameService {
         call.enqueue(callback);
     }
 
+    //Convert JSON Array to Array List of Hero Objects
     public ArrayList<Hero> processHeroes(Response response){
         ArrayList<Hero> heroes = new ArrayList<>();
         try{
@@ -52,6 +54,7 @@ public class GameService {
         return heroes;
     }
 
+    //Make An HTTP Request to retrieve the entire Maps JSON Array
     public void getAllMaps(Callback callback){
         OkHttpClient client = new OkHttpClient.Builder().build();
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.mapsBaseURL).newBuilder();
@@ -61,6 +64,7 @@ public class GameService {
         call.enqueue(callback);
     }
 
+    //Convert JSON Array to Array List of Map Objects
     public ArrayList<GameMap> processMaps(Response response){
         ArrayList<GameMap> maps = new ArrayList<>();
         try{
@@ -78,17 +82,7 @@ public class GameService {
         return maps;
     }
 
-    public ArrayList<Hero> generateCompletelyRandomTeam(ArrayList<Hero> allHeroes){
-        ArrayList<Hero> team = new ArrayList<>();
-        for(int i = 0; i < 5; i++){
-            int randomNumber = this.generateRandomNumber(allHeroes.size());
-            Hero selectedHero = allHeroes.get(randomNumber);
-            team.add(selectedHero);
-        }
-        return team;
-    }
-
-    public ArrayList<Hero> generatePartiallyRandomTeam(ArrayList<Hero> allHeroes, ArrayList<Hero> selectedHeroes){
+    public ArrayList<Hero> generateTeam(ArrayList<Hero> allHeroes, ArrayList<Hero> selectedHeroes){
         ArrayList<Hero> team = new ArrayList<>();
         for(Hero hero : selectedHeroes){
             team.add(hero);
@@ -127,5 +121,25 @@ public class GameService {
             mapNames.add(map.getPrimaryName());
         }
         return mapNames;
+    }
+
+    public Hero getHeroByName(String name, ArrayList<Hero> allHeroes){
+        Hero newHero = new Hero();
+        for(Hero hero: allHeroes){
+            if(hero.getPrimaryName().equalsIgnoreCase(name)){
+                newHero = hero;
+            }
+        }
+        return newHero;
+    }
+
+    public GameMap getMapByName(String name, ArrayList<GameMap> allMaps){
+        GameMap newMap = new GameMap();
+        for (GameMap map : allMaps){
+            if(map.getPrimaryName().equalsIgnoreCase(name)){
+                newMap = map;
+            }
+        }
+        return newMap;
     }
 }

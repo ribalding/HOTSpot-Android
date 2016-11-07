@@ -53,11 +53,25 @@ public class GameResultsActivity extends AppCompatActivity {
     private GameMap selectedMap;
     private GameService gs = new GameService();
 
+    private ArrayList<String> teamAChoices = new ArrayList<>();
+    private ArrayList<String> teamBChoices = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_results);
         ButterKnife.bind(this);
+
+        teamAChoices.add(getIntent().getStringExtra("heroSpinner1Choice"));
+        teamAChoices.add(getIntent().getStringExtra("heroSpinner2Choice"));
+        teamAChoices.add(getIntent().getStringExtra("heroSpinner3Choice"));
+        teamAChoices.add(getIntent().getStringExtra("heroSpinner4Choice"));
+        teamAChoices.add(getIntent().getStringExtra("heroSpinner5Choice"));
+        teamBChoices.add(getIntent().getStringExtra("heroSpinner6Choice"));
+        teamBChoices.add(getIntent().getStringExtra("heroSpinner7Choice"));
+        teamBChoices.add(getIntent().getStringExtra("heroSpinner8Choice"));
+        teamBChoices.add(getIntent().getStringExtra("heroSpinner9Choice"));
+        teamBChoices.add(getIntent().getStringExtra("heroSpinner10Choice"));
 
         gs.getAllHeroes(new Callback() {
             @Override
@@ -66,14 +80,15 @@ public class GameResultsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 allHeroes = gs.processHeroes(response);
-                teamA = gs.generateCompletelyRandomTeam(allHeroes);
-                teamB = gs.generateCompletelyRandomTeam(allHeroes);
+
+                    teamA = gs.generateTeam(allHeroes, generateSelectedHeroes(teamAChoices));
+                    teamB = gs.generateTeam(allHeroes, generateSelectedHeroes(teamBChoices));
 
                 GameResultsActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                    setTeamTextViews();
-                    setTeamImageViews();
+                        setTeamTextViews();
+                        setTeamImageViews();
                     }
                 });
             }
@@ -89,12 +104,16 @@ public class GameResultsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 allMaps = gs.processMaps(response);
-                selectedMap = gs.generateRandomMap(allMaps);
-
+                if(!getIntent().getStringExtra("mapSpinnerChoice").equalsIgnoreCase("None")){
+                    selectedMap = gs.getMapByName(getIntent().getStringExtra("mapSpinnerChoice"), allMaps);
+                } else {
+                    selectedMap = gs.generateRandomMap(allMaps);
+                }
                 GameResultsActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         setMapResultTextView();
+
                     }
                 });
             }
@@ -131,6 +150,16 @@ public class GameResultsActivity extends AppCompatActivity {
 
     public void setMapResultTextView(){
         mapResultTextView.setText(selectedMap.getPrimaryName());
+    }
+
+    public ArrayList<Hero> generateSelectedHeroes(ArrayList<String> choices){
+        ArrayList<Hero> selectedHeroes = new ArrayList<>();
+        for (String choice : choices){
+            if(!choice.equalsIgnoreCase("None")){
+                selectedHeroes.add(gs.getHeroByName(choice, allHeroes));
+            }
+        }
+        return selectedHeroes;
     }
 }
 

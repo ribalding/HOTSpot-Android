@@ -7,6 +7,8 @@ public class GameMap {
     private String primaryName;
     private String imageURL;
 
+    public GameMap(){}
+
     public GameMap(String primaryName, String imageURL){
         this.primaryName = primaryName;
         this.imageURL = imageURL;
@@ -27,4 +29,7 @@ public class GameMap {
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
+
+
+
 }

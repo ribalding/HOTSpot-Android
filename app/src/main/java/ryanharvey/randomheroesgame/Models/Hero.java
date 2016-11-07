@@ -1,6 +1,9 @@
 package ryanharvey.randomheroesgame.Models;
 
-import org.json.JSONObject;
+import android.view.View;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
 
 /**
  * Created by Ryan on 11/3/2016.
@@ -11,6 +14,9 @@ public class Hero {
     private String imageURL;
     private String group;
     private String subGroup;
+    private boolean isSet;
+
+    public Hero(){}
 
     public Hero(String name, String imageURL, String attributeName, String group, String subGroup){
         this.primaryName = name;
@@ -59,4 +65,6 @@ public class Hero {
     public void setSubGroup(String subGroup) {
         this.subGroup = subGroup;
     }
+
+
 }
