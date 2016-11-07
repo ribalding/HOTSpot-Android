@@ -154,5 +154,16 @@
             android:layout_alignParentEnd="true"
             android:textStyle="bold" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Map"
+            android:id="@+id/mapResultTextView"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#eaeaea"
+            android:textStyle="bold" />
+
     </RelativeLayout>
 </RelativeLayout>

@@ -31,12 +31,13 @@ public class GameResultsActivity extends AppCompatActivity {
     @Bind(R.id.hero9ResultTextView) TextView hero9ResultTextView;
     @Bind(R.id.hero10ResultTextView) TextView hero10ResultTextView;
 
+    @Bind(R.id.mapResultTextView) TextView mapResultTextView;
+
     private ArrayList<Hero> allHeroes;
-    private ArrayList<String> allHeroNames;
     private ArrayList<GameMap> allMaps;
-    private ArrayList<String> allMapNames;
     private ArrayList<Hero> teamA;
     private ArrayList<Hero> teamB;
+    private GameMap selectedMap;
     private GameService gs = new GameService();
 
     @Override
@@ -52,7 +53,6 @@ public class GameResultsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 allHeroes = gs.processHeroes(response);
-                allHeroNames = gs.getAllHeroNames(allHeroes);
                 teamA = gs.generateCompletelyRandomTeam(allHeroes);
                 teamB = gs.generateCompletelyRandomTeam(allHeroes);
 
@@ -64,10 +64,24 @@ public class GameResultsActivity extends AppCompatActivity {
                 });
             }
         });
+
+        gs.getAllMaps(new Callback(){
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                allMaps = gs.processMaps(response);
+                selectedMap = gs.generateRandomMap(allMaps);
+                setMapResultTextView();
+            }
+        });
     }
 
     public void setTeamTextViews(){
-
             hero1ResultTextView.setText(teamA.get(0).getPrimaryName());
             hero2ResultTextView.setText(teamA.get(1).getPrimaryName());
             hero3ResultTextView.setText(teamA.get(2).getPrimaryName());
@@ -78,7 +92,10 @@ public class GameResultsActivity extends AppCompatActivity {
             hero8ResultTextView.setText(teamB.get(2).getPrimaryName());
             hero9ResultTextView.setText(teamB.get(3).getPrimaryName());
             hero10ResultTextView.setText(teamB.get(4).getPrimaryName());
+    }
 
+    public void setMapResultTextView(){
+        mapResultTextView.setText(selectedMap.getPrimaryName());
     }
 }
 
