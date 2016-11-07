@@ -1,4 +1,4 @@
-package ryanharvey.randomheroesgame;
+package com.ryanharvey.randomheroesgame;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -12,9 +12,9 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import ryanharvey.randomheroesgame.Constants.Constants;
-import ryanharvey.randomheroesgame.Models.GameMap;
-import ryanharvey.randomheroesgame.Models.Hero;
+import com.ryanharvey.randomheroesgame.Constants.Constants;
+import com.ryanharvey.randomheroesgame.Models.GameMap;
+import com.ryanharvey.randomheroesgame.Models.Hero;
 
 /**
  * Created by Ryan on 11/3/2016.

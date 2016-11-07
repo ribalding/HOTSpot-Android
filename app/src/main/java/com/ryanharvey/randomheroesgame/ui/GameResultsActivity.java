@@ -1,4 +1,4 @@
-package ryanharvey.randomheroesgame.ui;
+package com.ryanharvey.randomheroesgame.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,10 +15,10 @@ import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
-import ryanharvey.randomheroesgame.GameService;
-import ryanharvey.randomheroesgame.Models.GameMap;
-import ryanharvey.randomheroesgame.Models.Hero;
-import ryanharvey.randomheroesgame.R;
+import com.ryanharvey.randomheroesgame.GameService;
+import com.ryanharvey.randomheroesgame.Models.GameMap;
+import com.ryanharvey.randomheroesgame.Models.Hero;
+import com.ryanharvey.randomheroesgame.R;
 
 public class GameResultsActivity extends AppCompatActivity {
 

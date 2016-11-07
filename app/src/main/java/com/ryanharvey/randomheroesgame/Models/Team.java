@@ -1,4 +1,4 @@
-package ryanharvey.randomheroesgame.Models;
+package com.ryanharvey.randomheroesgame.Models;
 
 import java.util.ArrayList;
 

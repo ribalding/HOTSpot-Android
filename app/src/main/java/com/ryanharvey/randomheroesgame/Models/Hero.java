@@ -1,9 +1,4 @@
-package ryanharvey.randomheroesgame.Models;
-
-import android.view.View;
-import android.widget.Spinner;
-
-import java.util.ArrayList;
+package com.ryanharvey.randomheroesgame.Models;
 
 /**
  * Created by Ryan on 11/3/2016.
