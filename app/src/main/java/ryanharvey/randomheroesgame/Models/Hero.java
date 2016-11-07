@@ -15,7 +15,7 @@ public class Hero {
     public Hero(String name, String imageURL, String attributeName, String group, String subGroup){
         this.primaryName = name;
         this.attributeName = attributeName;
-        this.imageURL = imageURL;
+        this.imageURL = "http://d1i1jxrdh2kvwy.cloudfront.net/Images/Heroes/Portraits/" + imageURL + ".png";
         this.group = group;
         this.subGroup = subGroup;
     }

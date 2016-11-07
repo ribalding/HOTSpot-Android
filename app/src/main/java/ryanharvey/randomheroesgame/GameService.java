@@ -108,7 +108,7 @@ public class GameService {
 
     public int generateRandomNumber(int max){
         Random rand = new Random();
-        return rand.nextInt(max) + 1;
+        return rand.nextInt(max);
     }
 
     public ArrayList<String> getAllHeroNames(ArrayList<Hero> heroes){

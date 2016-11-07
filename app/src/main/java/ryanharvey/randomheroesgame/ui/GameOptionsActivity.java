@@ -13,7 +13,7 @@ import android.widget.Switch;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -26,19 +26,19 @@ import ryanharvey.randomheroesgame.R;
 
 public class GameOptionsActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
-    @Bind(R.id.heroSpinner1) Spinner heroSpinner1;
-    @Bind(R.id.heroSpinner2) Spinner heroSpinner2;
-    @Bind(R.id.heroSpinner3) Spinner heroSpinner3;
-    @Bind(R.id.heroSpinner4) Spinner heroSpinner4;
-    @Bind(R.id.heroSpinner5) Spinner heroSpinner5;
-    @Bind(R.id.heroSpinner6) Spinner heroSpinner6;
-    @Bind(R.id.heroSpinner7) Spinner heroSpinner7;
-    @Bind(R.id.heroSpinner8) Spinner heroSpinner8;
-    @Bind(R.id.heroSpinner9) Spinner heroSpinner9;
-    @Bind(R.id.heroSpinner10) Spinner heroSpinner10;
-    @Bind(R.id.mapSelectSpinner) Spinner mapSelectSpinner;
-    @Bind(R.id.submitButton) Button submitButton;
-    @Bind(R.id.heroRestrictiveSwitch) Switch heroRestrictiveSwitch;
+    @BindView(R.id.heroSpinner1) Spinner heroSpinner1;
+    @BindView(R.id.heroSpinner2) Spinner heroSpinner2;
+    @BindView(R.id.heroSpinner3) Spinner heroSpinner3;
+    @BindView(R.id.heroSpinner4) Spinner heroSpinner4;
+    @BindView(R.id.heroSpinner5) Spinner heroSpinner5;
+    @BindView(R.id.heroSpinner6) Spinner heroSpinner6;
+    @BindView(R.id.heroSpinner7) Spinner heroSpinner7;
+    @BindView(R.id.heroSpinner8) Spinner heroSpinner8;
+    @BindView(R.id.heroSpinner9) Spinner heroSpinner9;
+    @BindView(R.id.heroSpinner10) Spinner heroSpinner10;
+    @BindView(R.id.mapSelectSpinner) Spinner mapSelectSpinner;
+    @BindView(R.id.submitButton) Button submitButton;
+    @BindView(R.id.heroRestrictiveSwitch) Switch heroRestrictiveSwitch;
 
     private GameService gs = new GameService();
     private ArrayList<Hero> allHeroes;

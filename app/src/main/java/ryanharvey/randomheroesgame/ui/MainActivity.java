@@ -6,13 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import ryanharvey.randomheroesgame.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    @Bind(R.id.generateButton) Button generateButton;
+    @BindView(R.id.generateButton) Button generateButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
