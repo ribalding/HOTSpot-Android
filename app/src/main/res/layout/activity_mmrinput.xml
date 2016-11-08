@@ -23,24 +23,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
-        android:ems="10"
-        android:id="@+id/nameInputEditText"
-        android:textColor="#eaeaea"
-        android:textStyle="normal|bold"
-        android:layout_above="@+id/numberInputEditText"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Number"
         android:ems="10"
         android:id="@+id/numberInputEditText"
         android:textColor="#eaeaea"
         android:textStyle="normal|bold"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/nameInputEditText"
-        android:layout_alignStart="@+id/nameInputEditText" />
+        android:layout_alignStart="@+id/nameInputEditText"
+        android:hint="Number" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/nameInputEditText"
+        android:textColor="#eaeaea"
+        android:textStyle="normal|bold"
+        android:layout_above="@+id/numberInputEditText"
+        android:layout_centerHorizontal="true"
+        android:hint="Name" />
 </RelativeLayout>

@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
         generateButton.setOnClickListener(this);
+        findMyMMRButton.setOnClickListener(this);
     }
 
     @Override

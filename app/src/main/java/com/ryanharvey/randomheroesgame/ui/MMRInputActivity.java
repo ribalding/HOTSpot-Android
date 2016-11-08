@@ -22,13 +22,15 @@ public class MMRInputActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mmrinput);
         ButterKnife.bind(this);
+
+        mmrSubmitButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         if(view == mmrSubmitButton){
             if(isValidName(nameInputEditText.getText().toString())) {
-                Intent intent = new Intent(MMRInputActivity.this, mmrResultsActivity.class);
+                Intent intent = new Intent(MMRInputActivity.this, MMRResultsActivity.class);
                 intent.putExtra("nameInput", nameInputEditText.getText().toString());
                 intent.putExtra("numberInput", numberInputEditText.getText().toString());
                 startActivity(intent);

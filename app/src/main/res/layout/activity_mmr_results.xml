@@ -8,6 +8,85 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ryanharvey.randomheroesgame.ui.mmrResultsActivity">
+    tools:context="com.ryanharvey.randomheroesgame.ui.MMRResultsActivity"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:text="User Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/userNameTextView"
+        android:textColor="#eaeaea"
+        android:textStyle="normal|bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/quickMatchTextView"
+        android:layout_alignStart="@+id/quickMatchTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+    <TextView
+        android:text="Team League"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/teamLeagueTextView"
+        android:textColor="#eaeaea"
+        android:textStyle="normal|bold"
+        android:textSize="25dp"
+        android:layout_marginTop="24dp"
+        android:textAlignment="center"
+        android:layout_below="@+id/quickMatchTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Hero League"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heroLeagueTextView"
+        android:textColor="#eaeaea"
+        android:textStyle="normal|bold"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/teamLeagueTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Unranked Draft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/unrankedDraftTextView"
+        android:textColor="#eaeaea"
+        android:textStyle="normal|bold"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="Quick Match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/quickMatchTextView"
+        android:textColor="#eaeaea"
+        android:textStyle="normal|bold"
+        android:textSize="25dp"
+        android:layout_marginTop="70dp"
+        android:textAlignment="center"
+        android:layout_below="@+id/userNameTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

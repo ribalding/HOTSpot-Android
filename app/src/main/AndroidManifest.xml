@@ -19,9 +19,8 @@
             </intent-filter>
         </activity>
 
-
         <activity android:name="com.ryanharvey.randomheroesgame.ui.MMRInputActivity" />
-        <activity android:name="com.ryanharvey.randomheroesgame.ui.mmrResultsActivity"></activity>
+        <activity android:name="com.ryanharvey.randomheroesgame.ui.MMRResultsActivity"></activity>
         <activity android:name="com.ryanharvey.randomheroesgame.ui.GameOptionsActivity" />
         <activity android:name="com.ryanharvey.randomheroesgame.ui.GameResultsActivity"></activity>
 
