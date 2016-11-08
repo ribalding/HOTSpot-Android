@@ -10,15 +10,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="ryanharvey.randomheroesgame.ui.MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ryanharvey.randomheroesgame.ui.GameOptionsActivity" />
-        <activity android:name="ryanharvey.randomheroesgame.ui.GameResultsActivity"></activity>
+        <activity android:name=".ui.GameOptionsActivity" />
+        <activity android:name=".ui.GameResultsActivity" />
+        <activity android:name=".ui.MMRInputActivity" />
+        <activity android:name=".ui.mmrResultsActivity"></activity>
     </application>
 
 </manifest>

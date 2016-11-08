@@ -82,6 +82,7 @@ public class GameService {
         return maps;
     }
 
+    //Generate team based on user selections
     public ArrayList<Hero> generateTeam(ArrayList<Hero> allHeroes, ArrayList<Hero> selectedHeroes){
         ArrayList<Hero> team = new ArrayList<>();
         for(Hero hero : selectedHeroes){
@@ -95,16 +96,19 @@ public class GameService {
         return team;
     }
 
+    //Generate Random Map
     public GameMap generateRandomMap(ArrayList<GameMap> allMaps){
         int randomNumber = this.generateRandomNumber(allMaps.size());
         return allMaps.get(randomNumber);
     }
 
+    //Generate Random Number Between 0 and a provided int
     public int generateRandomNumber(int max){
         Random rand = new Random();
         return rand.nextInt(max);
     }
 
+    //Get All Hero Names
     public ArrayList<String> getAllHeroNames(ArrayList<Hero> heroes){
         ArrayList<String> heroNames = new ArrayList<>();
         heroNames.add("None");
@@ -114,6 +118,7 @@ public class GameService {
         return heroNames;
     }
 
+    //Get All Map Names
     public ArrayList<String> getAllMapNames(ArrayList<GameMap> maps){
         ArrayList<String> mapNames = new ArrayList<>();
         mapNames.add("None");
@@ -123,6 +128,7 @@ public class GameService {
         return mapNames;
     }
 
+    //Get Hero By Name
     public Hero getHeroByName(String name, ArrayList<Hero> allHeroes){
         Hero newHero = new Hero();
         for(Hero hero: allHeroes){
@@ -133,6 +139,7 @@ public class GameService {
         return newHero;
     }
 
+    //Get Map By Name
     public GameMap getMapByName(String name, ArrayList<GameMap> allMaps){
         GameMap newMap = new GameMap();
         for (GameMap map : allMaps){

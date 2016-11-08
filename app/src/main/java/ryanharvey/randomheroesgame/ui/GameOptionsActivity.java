@@ -109,7 +109,6 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
                         heroSpinner10.setAdapter(heroSpinnerAdapter);
                     }
                 });
-
             }
         });
 

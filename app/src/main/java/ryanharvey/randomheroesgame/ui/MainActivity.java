@@ -13,6 +13,7 @@ import ryanharvey.randomheroesgame.R;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     @BindView(R.id.generateButton) Button generateButton;
+    @BindView(R.id.findMyMMRButton) Button findMyMMRButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view == generateButton){
             Intent intent = new Intent(MainActivity.this, GameOptionsActivity.class);
+            startActivity(intent);
+        } else if (view == findMyMMRButton){
+            Intent intent = new Intent (MainActivity.this, MMRInputActivity.class);
             startActivity(intent);
         }
     }
