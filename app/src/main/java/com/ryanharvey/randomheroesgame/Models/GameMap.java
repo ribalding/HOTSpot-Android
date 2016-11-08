@@ -1,4 +1,4 @@
-package ryanharvey.randomheroesgame.Models;
+package com.ryanharvey.randomheroesgame.Models;
 
 /**
  * Created by Ryan on 11/3/2016.

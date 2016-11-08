@@ -1,9 +1,9 @@
-package ryanharvey.randomheroesgame.ui;
+package com.ryanharvey.randomheroesgame.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import ryanharvey.randomheroesgame.R;
+import com.ryanharvey.randomheroesgame.R;
 
 public class mmrResultsActivity extends AppCompatActivity {
 

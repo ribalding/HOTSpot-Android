@@ -1,4 +1,4 @@
-package ryanharvey.randomheroesgame.ui;
+package com.ryanharvey.randomheroesgame.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ryanharvey.randomheroesgame.R;
+import com.ryanharvey.randomheroesgame.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 

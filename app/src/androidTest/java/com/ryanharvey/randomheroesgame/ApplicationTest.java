@@ -1,4 +1,4 @@
-package ryanharvey.randomheroesgame;
+package com.ryanharvey.randomheroesgame;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

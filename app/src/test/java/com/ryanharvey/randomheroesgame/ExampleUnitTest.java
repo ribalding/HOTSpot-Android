@@ -1,4 +1,4 @@
-package ryanharvey.randomheroesgame;
+package com.ryanharvey.randomheroesgame;
 
 import org.junit.Test;
 

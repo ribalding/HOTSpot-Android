@@ -1,4 +1,4 @@
-package ryanharvey.randomheroesgame.Constants;
+package com.ryanharvey.randomheroesgame.Constants;
 
 /**
  * Created by Ryan on 11/3/2016.
