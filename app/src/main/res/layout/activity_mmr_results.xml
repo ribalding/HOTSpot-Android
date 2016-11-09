@@ -27,38 +27,6 @@
         android:textSize="30sp" />
 
     <TextView
-        android:text="Team League"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/teamLeagueTextView"
-        android:textColor="#eaeaea"
-        android:textStyle="normal|bold"
-        android:textSize="25dp"
-        android:layout_marginTop="24dp"
-        android:textAlignment="center"
-        android:layout_below="@+id/quickMatchTextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="Hero League"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/heroLeagueTextView"
-        android:textColor="#eaeaea"
-        android:textStyle="normal|bold"
-        android:textSize="25dp"
-        android:textAlignment="center"
-        android:layout_marginTop="26dp"
-        android:layout_below="@+id/teamLeagueTextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
         android:text="Unranked Draft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,6 +42,22 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
+        android:text="Hero League"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/heroLeagueTextView"
+        android:textColor="#eaeaea"
+        android:textStyle="normal|bold"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:layout_below="@+id/unrankedDraftTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
         android:text="Quick Match"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -81,12 +65,28 @@
         android:textColor="#eaeaea"
         android:textStyle="normal|bold"
         android:textSize="25dp"
-        android:layout_marginTop="70dp"
         android:textAlignment="center"
-        android:layout_below="@+id/userNameTextView"
+        android:layout_above="@+id/unrankedDraftTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:text="Team League"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/teamLeagueTextView"
+        android:textColor="#eaeaea"
+        android:textStyle="normal|bold"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:layout_below="@+id/heroLeagueTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp" />
 
 </RelativeLayout>
