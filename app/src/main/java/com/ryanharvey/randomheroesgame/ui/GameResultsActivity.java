@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.ryanharvey.randomheroesgame.Models.AllHeroes;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -46,7 +47,7 @@ public class GameResultsActivity extends AppCompatActivity {
 
     @BindView(R.id.mapResultTextView) TextView mapResultTextView;
 
-    private ArrayList<Hero> allHeroes;
+    private AllHeroes allHeroes;
     private ArrayList<GameMap> allMaps;
     private ArrayList<Hero> teamA;
     private ArrayList<Hero> teamB;
@@ -73,16 +74,16 @@ public class GameResultsActivity extends AppCompatActivity {
         teamBChoices.add(getIntent().getStringExtra("heroSpinner9Choice"));
         teamBChoices.add(getIntent().getStringExtra("heroSpinner10Choice"));
 
-        gs.getAllHeroes(new Callback() {
+        gs.getAllHeroesJSON(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {}
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                allHeroes = gs.processHeroes(response);
+                allHeroes.setAllHeroes(gs.processHeroes(response));
 
-                    teamA = gs.generateTeam(allHeroes, generateSelectedHeroes(teamAChoices));
-                    teamB = gs.generateTeam(allHeroes, generateSelectedHeroes(teamBChoices));
+                    teamA = gs.generateTeam(allHeroes.getAllHeroes(), generateSelectedHeroes(teamAChoices));
+                    teamB = gs.generateTeam(allHeroes.getAllHeroes(), generateSelectedHeroes(teamBChoices));
 
                 GameResultsActivity.this.runOnUiThread(new Runnable() {
                     @Override
@@ -156,7 +157,7 @@ public class GameResultsActivity extends AppCompatActivity {
         ArrayList<Hero> selectedHeroes = new ArrayList<>();
         for (String choice : choices){
             if(!choice.equalsIgnoreCase("None")){
-                selectedHeroes.add(gs.getHeroByName(choice, allHeroes));
+                selectedHeroes.add(gs.getHeroByName(choice, allHeroes.getAllHeroes()));
             }
         }
         return selectedHeroes;

@@ -24,7 +24,7 @@ public class GameService {
     public GameService(){}
 
     //Make An HTTP Request to retrieve the entire Heroes JSON Array
-    public void getAllHeroes(Callback callback){
+    public void getAllHeroesJSON(Callback callback){
         OkHttpClient client = new OkHttpClient.Builder().build();
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.heroesBaseURL).newBuilder();
         String url = urlBuilder.build().toString();

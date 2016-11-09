@@ -77,7 +77,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
         heroSpinner10.setOnItemSelectedListener(listener);
         mapSelectSpinner.setOnItemSelectedListener(listener);
 
-        gs.getAllHeroes(new Callback(){
+        gs.getAllHeroesJSON(new Callback(){
 
             @Override
             public void onFailure(Call call, IOException e) {
