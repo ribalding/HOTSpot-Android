@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 import okhttp3.Call;
@@ -142,24 +143,42 @@ public class GameService {
     }
 
     //Not Completed
-    public Hero getWeightedHero(AllHeroes allHeroes, ArrayList<Hero> team){
+    public Hero getWeightedHero(AllHeroes allHeroes, ArrayList<Hero> team) {
         Integer warrior = 0;
         Integer assassin = 0;
         Integer spec = 0;
         Integer support = 0;
 
-        for(Hero hero : team){
-            if(hero.getGroup().equalsIgnoreCase("Warrior")){
-                warrior ++;
-            } else if (hero.getGroup().equalsIgnoreCase("Assassin")){
-                assassin ++;
-            } else if (hero.getGroup().equalsIgnoreCase("Specialist")){
-                spec ++;
-            } else if (hero.getGroup().equalsIgnoreCase("Support")){
-                support ++;
+        for (Hero hero : team) {
+            if (hero.getGroup().equalsIgnoreCase("Warrior")) {
+                warrior++;
+            } else if (hero.getGroup().equalsIgnoreCase("Assassin")) {
+                assassin++;
+            } else if (hero.getGroup().equalsIgnoreCase("Specialist")) {
+                spec++;
+            } else if (hero.getGroup().equalsIgnoreCase("Support")) {
+                support++;
             }
         }
 
-      return new Hero();
-    }
+
+        ArrayList<Integer> nums = new ArrayList<Integer>(Arrays.asList(warrior, assassin, spec, support));
+        ArrayList<String> heroFilters = new ArrayList<>();
+
+        for(int i = 0; i < 4; i++) {
+            if (i == 0 && nums.get(i) >= 1) {
+                heroFilters.add("Warrior");
+            } else if (i== 1 && assassin >= 2) {
+                heroFilters.add("Assassin");
+            } else if (i == 2 && spec >= 1) {
+                heroFilters.add("Specialist");
+            } else if (i == 3 && support >= 1) {
+                heroFilters.add("Support");
+            }
+        }
+
+        ArrayList<Hero> filteredHeroes = allHeroes.getFilteredHeroes(heroFilters);
+        return filteredHeroes.get(generateRandomNumber(filteredHeroes.size() - 1));
+        }
 }
+

@@ -1,6 +1,7 @@
 package com.ryanharvey.randomheroesgame.Models;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Ryan on 11/9/2016.
@@ -74,4 +75,16 @@ public class AllHeroes {
         return heroNames;
     }
 
+
+    public ArrayList<Hero> getFilteredHeroes(ArrayList<String> filters){
+        ArrayList<Hero> filteredHeroes = new ArrayList<>();
+        for(String filter : filters){
+            for(Hero hero : this.allHeroesArrayList){
+                if (!hero.getGroup().equalsIgnoreCase(filter)){
+                    filteredHeroes.add(hero);
+                }
+            }
+        }
+        return filteredHeroes;
+    }
 }
