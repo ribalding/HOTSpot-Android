@@ -13,6 +13,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import com.ryanharvey.randomheroesgame.Constants.Constants;
+import com.ryanharvey.randomheroesgame.Models.AllHeroes;
 import com.ryanharvey.randomheroesgame.Models.GameMap;
 import com.ryanharvey.randomheroesgame.Models.Hero;
 
@@ -108,16 +109,6 @@ public class GameService {
         return rand.nextInt(max);
     }
 
-    //Get All Hero Names
-    public ArrayList<String> getAllHeroNames(ArrayList<Hero> heroes){
-        ArrayList<String> heroNames = new ArrayList<>();
-        heroNames.add("None");
-        for(Hero hero : heroes){
-            heroNames.add(hero.getPrimaryName());
-        }
-        return heroNames;
-    }
-
     //Get All Map Names
     public ArrayList<String> getAllMapNames(ArrayList<GameMap> maps){
         ArrayList<String> mapNames = new ArrayList<>();
@@ -148,5 +139,27 @@ public class GameService {
             }
         }
         return newMap;
+    }
+
+    //Not Completed
+    public Hero getWeightedHero(AllHeroes allHeroes, ArrayList<Hero> team){
+        Integer warrior = 0;
+        Integer assassin = 0;
+        Integer spec = 0;
+        Integer support = 0;
+
+        for(Hero hero : team){
+            if(hero.getGroup().equalsIgnoreCase("Warrior")){
+                warrior ++;
+            } else if (hero.getGroup().equalsIgnoreCase("Assassin")){
+                assassin ++;
+            } else if (hero.getGroup().equalsIgnoreCase("Specialist")){
+                spec ++;
+            } else if (hero.getGroup().equalsIgnoreCase("Support")){
+                support ++;
+            }
+        }
+
+      return new Hero();
     }
 }

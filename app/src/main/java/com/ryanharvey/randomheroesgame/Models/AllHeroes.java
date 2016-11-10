@@ -64,4 +64,14 @@ public class AllHeroes {
         return assassins;
     }
 
+    //Get All Hero Names
+    public ArrayList<String> getAllHeroNames(){
+        ArrayList<String> heroNames = new ArrayList<>();
+        heroNames.add("None");
+        for(Hero hero : this.allHeroesArrayList){
+            heroNames.add(hero.getPrimaryName());
+        }
+        return heroNames;
+    }
+
 }

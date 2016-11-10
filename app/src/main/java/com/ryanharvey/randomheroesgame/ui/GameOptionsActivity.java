@@ -19,6 +19,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 import com.ryanharvey.randomheroesgame.GameService;
+import com.ryanharvey.randomheroesgame.Models.AllHeroes;
 import com.ryanharvey.randomheroesgame.Models.GameMap;
 import com.ryanharvey.randomheroesgame.Models.Hero;
 import com.ryanharvey.randomheroesgame.R;
@@ -40,7 +41,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     @BindView(R.id.heroRestrictiveSwitch) Switch heroRestrictiveSwitch;
 
     private GameService gs = new GameService();
-    private ArrayList<Hero> allHeroes;
+    private AllHeroes allHeroes = new AllHeroes();
     private ArrayList<String> allHeroNames;
     private ArrayList<GameMap> allMaps;
     private ArrayList<String> allMapNames;
@@ -86,8 +87,8 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                allHeroes = gs.processHeroes(response);
-                allHeroNames = gs.getAllHeroNames(allHeroes);
+                allHeroes.setAllHeroes(gs.processHeroes(response));
+                allHeroNames = allHeroes.getAllHeroNames();
                 final ArrayAdapter<String> heroSpinnerAdapter = new ArrayAdapter<>(GameOptionsActivity.this, android.R.layout.simple_spinner_dropdown_item, allHeroNames);
 
                 GameOptionsActivity.this.runOnUiThread(new Runnable() {

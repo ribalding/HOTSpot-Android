@@ -47,7 +47,7 @@ public class GameResultsActivity extends AppCompatActivity {
 
     @BindView(R.id.mapResultTextView) TextView mapResultTextView;
 
-    private AllHeroes allHeroes;
+    private AllHeroes allHeroes = new AllHeroes();
     private ArrayList<GameMap> allMaps;
     private ArrayList<Hero> teamA;
     private ArrayList<Hero> teamB;
