@@ -1,12 +1,15 @@
 package com.ryanharvey.randomheroesgame.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 
@@ -18,13 +21,15 @@ import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+
+import com.ryanharvey.randomheroesgame.Constants.Constants;
 import com.ryanharvey.randomheroesgame.GameService;
 import com.ryanharvey.randomheroesgame.Models.AllHeroes;
 import com.ryanharvey.randomheroesgame.Models.GameMap;
 import com.ryanharvey.randomheroesgame.Models.Hero;
 import com.ryanharvey.randomheroesgame.R;
 
-public class GameOptionsActivity extends AppCompatActivity implements View.OnClickListener {
+public class GameOptionsActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     @BindView(R.id.heroSpinner1) Spinner heroSpinner1;
     @BindView(R.id.heroSpinner2) Spinner heroSpinner2;
@@ -38,13 +43,15 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     @BindView(R.id.heroSpinner10) Spinner heroSpinner10;
     @BindView(R.id.mapSelectSpinner) Spinner mapSelectSpinner;
     @BindView(R.id.submitButton) Button submitButton;
-    @BindView(R.id.heroRestrictiveSwitch) Switch heroRestrictiveSwitch;
+    @BindView(R.id.heroRestrictiveSwitch) Switch teamRestrictiveSwitch;
 
     private GameService gs = new GameService();
     private AllHeroes allHeroes = new AllHeroes();
     private ArrayList<String> allHeroNames;
     private ArrayList<GameMap> allMaps;
     private ArrayList<String> allMapNames;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
     private String heroSpinner1Choice = "None";
     private String heroSpinner2Choice = "None";
@@ -64,6 +71,8 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_options);
         ButterKnife.bind(this);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
         submitButton.setOnClickListener(this);
 
         heroSpinner1.setOnItemSelectedListener(listener);
@@ -77,6 +86,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
         heroSpinner9.setOnItemSelectedListener(listener);
         heroSpinner10.setOnItemSelectedListener(listener);
         mapSelectSpinner.setOnItemSelectedListener(listener);
+        teamRestrictiveSwitch.setOnCheckedChangeListener(this);
 
         gs.getAllHeroesJSON(new Callback(){
 
@@ -148,6 +158,10 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
             intent.putExtra("heroSpinner9Choice", heroSpinner9Choice);
             intent.putExtra("heroSpinner10Choice", heroSpinner10Choice);
             intent.putExtra("mapSpinnerChoice", mapSpinnerChoice);
+            mEditor.putBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE,
+                    teamRestrictiveSwitch.isChecked())
+                    .apply();
+
             startActivity(intent);
         }
     }
@@ -187,4 +201,9 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
 
         }
     };
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
+    }
 }

@@ -112,7 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hero Restrictive"
-            android:id="@+id/heroRestrictiveSwitch"
+            android:id="@+id/teamRestrictiveSwitch"
             android:textColor="#eaeaea"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
