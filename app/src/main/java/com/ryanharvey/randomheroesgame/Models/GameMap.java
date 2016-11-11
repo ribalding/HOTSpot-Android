@@ -11,7 +11,7 @@ public class GameMap {
 
     public GameMap(String primaryName, String imageURL){
         this.primaryName = primaryName;
-        this.imageURL = imageURL;
+        this.imageURL = "http://d1i1jxrdh2kvwy.cloudfront.net/Images/Maps/" + imageURL + ".png";
     }
 
     public String getPrimaryName() {

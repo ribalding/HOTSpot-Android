@@ -4,7 +4,9 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -51,6 +53,7 @@ public class GameResultsActivity extends AppCompatActivity {
     @BindView((R.id.hero10Image)) ImageButton hero10Image;
 
     @BindView(R.id.mapResultTextView) TextView mapResultTextView;
+    @BindView(R.id.mapImageView) ImageView mapImageView;
 
     private AllHeroes allHeroes = new AllHeroes();
     private ArrayList<GameMap> allMaps;
@@ -156,6 +159,10 @@ public class GameResultsActivity extends AppCompatActivity {
         Picasso.with(this).load(teamB.get(2).getImageURL()).into(hero8Image);
         Picasso.with(this).load(teamB.get(3).getImageURL()).into(hero9Image);
         Picasso.with(this).load(teamB.get(4).getImageURL()).into(hero10Image);
+
+        Picasso.with(this).load(selectedMap.getImageURL()).into(mapImageView);
+        Log.d("TEST", selectedMap.getImageURL());
+
     }
 
     public void setMapResultTextView(){
