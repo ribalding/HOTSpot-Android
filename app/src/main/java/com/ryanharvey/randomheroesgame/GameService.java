@@ -92,8 +92,6 @@ public class GameService {
             team.add(hero);
         }
         for(int i = 0; i < 5 - selectedHeroes.size(); i++){
-            //TODO why this.generate?
-            //TODO does random number generateRandomNumber every time it's called?
             int randomNumber = this.generateRandomNumber(allHeroes.getAllHeroes().size());
             Hero selectedHero = allHeroes.getAllHeroes().get(randomNumber);
             if (teamRestrictive) {

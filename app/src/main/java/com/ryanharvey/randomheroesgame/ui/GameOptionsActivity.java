@@ -43,7 +43,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     @BindView(R.id.heroSpinner10) Spinner heroSpinner10;
     @BindView(R.id.mapSelectSpinner) Spinner mapSelectSpinner;
     @BindView(R.id.submitButton) Button submitButton;
-    @BindView(R.id.heroRestrictiveSwitch) Switch teamRestrictiveSwitch;
+    @BindView(R.id.teamRestrictiveSwitch) Switch teamRestrictiveSwitch;
 
     private GameService gs = new GameService();
     private AllHeroes allHeroes = new AllHeroes();

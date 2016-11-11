@@ -91,7 +91,7 @@ public class GameResultsActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 allHeroes.setAllHeroes(gs.processHeroes(response));
 
-                    teamA = gs.generateTeam(allHeroes.getAllHeroes(), generateSelectedHeroes(teamAChoices), teamRestrictionIsOn);
+                    teamA = gs.generateTeam(allHeroes, generateSelectedHeroes(teamAChoices), teamRestrictionIsOn);
                     teamB = gs.generateTeam(allHeroes, generateSelectedHeroes(teamBChoices), teamRestrictionIsOn);
 
                 GameResultsActivity.this.runOnUiThread(new Runnable() {
