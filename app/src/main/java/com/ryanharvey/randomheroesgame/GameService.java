@@ -83,14 +83,21 @@ public class GameService {
     }
 
     //Generate team based on user selections
-    public ArrayList<Hero> generateTeam(ArrayList<Hero> allHeroes, ArrayList<Hero> selectedHeroes){
+    public ArrayList<Hero> generateTeam(ArrayList<Hero> allHeroes, ArrayList<Hero> selectedHeroes, boolean teamRestrictive){
         ArrayList<Hero> team = new ArrayList<>();
         for(Hero hero : selectedHeroes){
             team.add(hero);
         }
         for(int i = 0; i < 5 - selectedHeroes.size(); i++){
+            //TODO why this.generate?
+            //TODO does random number generateRandomNumber every time it's called?
             int randomNumber = this.generateRandomNumber(allHeroes.size());
             Hero selectedHero = allHeroes.get(randomNumber);
+            if (teamRestrictive) {
+                while (team.contains(selectedHero)) {
+                    selectedHero = allHeroes.get(this.generateRandomNumber(allHeroes.size()));
+                }
+            }
             team.add(selectedHero);
         }
         return team;
