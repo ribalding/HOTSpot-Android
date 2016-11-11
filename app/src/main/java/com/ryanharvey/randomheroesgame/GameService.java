@@ -85,14 +85,13 @@ public class GameService {
     }
 
     //Generate team based on user selections
-    public ArrayList<Hero> generateTeam(ArrayList<Hero> allHeroes, ArrayList<Hero> selectedHeroes){
+    public ArrayList<Hero> generateTeam(AllHeroes allHeroes, ArrayList<Hero> selectedHeroes){
         ArrayList<Hero> team = new ArrayList<>();
         for(Hero hero : selectedHeroes){
             team.add(hero);
         }
         for(int i = 0; i < 5 - selectedHeroes.size(); i++){
-            int randomNumber = this.generateRandomNumber(allHeroes.size());
-            Hero selectedHero = allHeroes.get(randomNumber);
+            Hero selectedHero = allHeroes.getAllHeroes().get(generateRandomNumber(allHeroes.getAllHeroes().size()));
             team.add(selectedHero);
         }
         return team;
@@ -161,7 +160,6 @@ public class GameService {
             }
         }
 
-
         ArrayList<Integer> nums = new ArrayList<Integer>(Arrays.asList(warrior, assassin, spec, support));
         ArrayList<String> heroFilters = new ArrayList<>();
 
@@ -178,7 +176,7 @@ public class GameService {
         }
 
         ArrayList<Hero> filteredHeroes = allHeroes.getFilteredHeroes(heroFilters);
-        return filteredHeroes.get(generateRandomNumber(filteredHeroes.size() - 1));
+        return filteredHeroes.get(generateRandomNumber(filteredHeroes.size()));
         }
 }
 
