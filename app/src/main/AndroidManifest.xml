@@ -20,9 +20,9 @@
         </activity>
 
         <activity android:name="com.ryanharvey.randomheroesgame.ui.MMRInputActivity" />
-        <activity android:name="com.ryanharvey.randomheroesgame.ui.MMRResultsActivity"></activity>
+        <activity android:name="com.ryanharvey.randomheroesgame.ui.MMRResultsActivity" />
         <activity android:name="com.ryanharvey.randomheroesgame.ui.GameOptionsActivity" />
-        <activity android:name="com.ryanharvey.randomheroesgame.ui.GameResultsActivity"></activity>
+        <activity android:name="com.ryanharvey.randomheroesgame.ui.GameResultsActivity" />
 
     </application>
 

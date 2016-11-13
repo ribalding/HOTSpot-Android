@@ -49,20 +49,19 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     private ArrayList<String> allHeroNames;
     private ArrayList<GameMap> allMaps;
     private ArrayList<String> allMapNames;
-    private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
-    private String heroSpinner1Choice = "None";
-    private String heroSpinner2Choice = "None";
-    private String heroSpinner3Choice = "None";
-    private String heroSpinner4Choice = "None";
-    private String heroSpinner5Choice = "None";
-    private String heroSpinner6Choice = "None";
-    private String heroSpinner7Choice = "None";
-    private String heroSpinner8Choice = "None";
-    private String heroSpinner9Choice = "None";
-    private String heroSpinner10Choice = "None";
-    private String mapSpinnerChoice = "None";
+    private String heroSpinner1Choice = Constants.NONE;
+    private String heroSpinner2Choice = Constants.NONE;
+    private String heroSpinner3Choice = Constants.NONE;
+    private String heroSpinner4Choice = Constants.NONE;
+    private String heroSpinner5Choice = Constants.NONE;
+    private String heroSpinner6Choice = Constants.NONE;
+    private String heroSpinner7Choice = Constants.NONE;
+    private String heroSpinner8Choice = Constants.NONE;
+    private String heroSpinner9Choice = Constants.NONE;
+    private String heroSpinner10Choice = Constants.NONE;
+    private String mapSpinnerChoice = Constants.NONE;
 
 
     @Override
@@ -70,7 +69,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_options);
         ButterKnife.bind(this);
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
         submitButton.setOnClickListener(this);
 
@@ -146,6 +145,9 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if (view == submitButton){
             Intent intent = new Intent(GameOptionsActivity.this, GameResultsActivity.class);
+
+            //TODO: Refactor this to be in its own method
+
             editor.putString("heroSpinner1Choice", heroSpinner1Choice)
                     .putString("heroSpinner2Choice", heroSpinner2Choice)
                     .putString("heroSpinner3Choice", heroSpinner3Choice)

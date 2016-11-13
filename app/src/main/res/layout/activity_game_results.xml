@@ -267,7 +267,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Team B"
+            android:text="@string/team_b"
             android:id="@+id/teamBResultsTextView"
             android:textColor="#eaeaea"
             android:layout_below="@id/hero10Layout"

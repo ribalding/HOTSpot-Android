@@ -59,7 +59,7 @@ public class GameService {
     //Make An HTTP Request to retrieve the entire Maps JSON Array
     public void getAllMaps(Callback callback){
         OkHttpClient client = new OkHttpClient.Builder().build();
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.mapsBaseURL).newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.MAPS_BASE_URL).newBuilder();
         String url = urlBuilder.build().toString();
         Request request= new Request.Builder().url(url).build();
         Call call = client.newCall(request);
@@ -106,7 +106,7 @@ public class GameService {
 
     //Generate Random Map
     public GameMap generateRandomMap(ArrayList<GameMap> allMaps){
-        int randomNumber = this.generateRandomNumber(allMaps.size());
+        int randomNumber = this.generateRandomNumber(allMaps.size() + 1);
         return allMaps.get(randomNumber);
     }
 

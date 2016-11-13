@@ -127,6 +127,7 @@ public class GameResultsActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         setMapResultTextView();
+                        setMapImageView();
 
                     }
                 });
@@ -161,8 +162,10 @@ public class GameResultsActivity extends AppCompatActivity {
         Picasso.with(this).load(teamB.get(3).getImageURL()).into(hero9Image);
         Picasso.with(this).load(teamB.get(4).getImageURL()).into(hero10Image);
 
-        Picasso.with(this).load(selectedMap.getImageURL()).into(mapImageView);
+    }
 
+    public void setMapImageView(){
+        Picasso.with(this).load(selectedMap.getImageURL()).into(mapImageView);
     }
 
     public void setMapResultTextView(){
