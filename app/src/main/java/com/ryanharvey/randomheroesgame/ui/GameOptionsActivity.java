@@ -146,19 +146,18 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if (view == submitButton){
             Intent intent = new Intent(GameOptionsActivity.this, GameResultsActivity.class);
-            intent.putExtra("heroSpinner1Choice", heroSpinner1Choice);
-            intent.putExtra("heroSpinner2Choice", heroSpinner2Choice);
-            intent.putExtra("heroSpinner3Choice", heroSpinner3Choice);
-            intent.putExtra("heroSpinner4Choice", heroSpinner4Choice);
-            intent.putExtra("heroSpinner5Choice", heroSpinner5Choice);
-            intent.putExtra("heroSpinner6Choice", heroSpinner6Choice);
-            intent.putExtra("heroSpinner7Choice", heroSpinner7Choice);
-            intent.putExtra("heroSpinner8Choice", heroSpinner8Choice);
-            intent.putExtra("heroSpinner9Choice", heroSpinner9Choice);
-            intent.putExtra("heroSpinner10Choice", heroSpinner10Choice);
-            intent.putExtra("mapSpinnerChoice", mapSpinnerChoice);
-            editor.putBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE,
-                    teamRestrictiveSwitch.isChecked())
+            editor.putString("heroSpinner1Choice", heroSpinner1Choice)
+                    .putString("heroSpinner2Choice", heroSpinner2Choice)
+                    .putString("heroSpinner3Choice", heroSpinner3Choice)
+                    .putString("heroSpinner4Choice", heroSpinner4Choice)
+                    .putString("heroSpinner5Choice", heroSpinner5Choice)
+                    .putString("heroSpinner6Choice", heroSpinner6Choice)
+                    .putString("heroSpinner7Choice", heroSpinner7Choice)
+                    .putString("heroSpinner8Choice", heroSpinner8Choice)
+                    .putString("heroSpinner9Choice", heroSpinner9Choice)
+                    .putString("heroSpinnger10Choice", heroSpinner10Choice)
+                    .putString("mapSpinnerChoice", mapSpinnerChoice)
+                    .putBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE, teamRestrictiveSwitch.isChecked())
                     .apply();
 
             startActivity(intent);

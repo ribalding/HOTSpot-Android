@@ -74,16 +74,17 @@ public class GameResultsActivity extends AppCompatActivity {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         teamRestrictionIsOn = sharedPreferences.getBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE, true);
 
-        teamAChoices.add(getIntent().getStringExtra("heroSpinner1Choice"));
-        teamAChoices.add(getIntent().getStringExtra("heroSpinner2Choice"));
-        teamAChoices.add(getIntent().getStringExtra("heroSpinner3Choice"));
-        teamAChoices.add(getIntent().getStringExtra("heroSpinner4Choice"));
-        teamAChoices.add(getIntent().getStringExtra("heroSpinner5Choice"));
-        teamBChoices.add(getIntent().getStringExtra("heroSpinner6Choice"));
-        teamBChoices.add(getIntent().getStringExtra("heroSpinner7Choice"));
-        teamBChoices.add(getIntent().getStringExtra("heroSpinner8Choice"));
-        teamBChoices.add(getIntent().getStringExtra("heroSpinner9Choice"));
-        teamBChoices.add(getIntent().getStringExtra("heroSpinner10Choice"));
+        teamAChoices.add(sharedPreferences.getString("heroSpinner1Choice", Constants.NONE));
+        teamAChoices.add(sharedPreferences.getString("heroSpinner2Choice", Constants.NONE));
+        teamAChoices.add(sharedPreferences.getString("heroSpinner3Choice", Constants.NONE));
+        teamAChoices.add(sharedPreferences.getString("heroSpinner4Choice", Constants.NONE));
+        teamAChoices.add(sharedPreferences.getString("heroSpinner5Choice", Constants.NONE));
+        teamBChoices.add(sharedPreferences.getString("heroSpinner6Choice", Constants.NONE));
+        teamBChoices.add(sharedPreferences.getString("heroSpinner7Choice", Constants.NONE));
+        teamBChoices.add(sharedPreferences.getString("heroSpinner8Choice", Constants.NONE));
+        teamBChoices.add(sharedPreferences.getString("heroSpinner9Choice", Constants.NONE));
+        teamBChoices.add(sharedPreferences.getString("heroSpinner10Choice", Constants.NONE));
+
 
         gs.getAllHeroesJSON(new Callback() {
             @Override
@@ -115,9 +116,10 @@ public class GameResultsActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                String mapName = sharedPreferences.getString("mapSpinnerChoice", Constants.NONE);
                 allMaps = gs.processMaps(response);
-                if(!getIntent().getStringExtra("mapSpinnerChoice").equalsIgnoreCase("None")){
-                    selectedMap = gs.getMapByName(getIntent().getStringExtra("mapSpinnerChoice"), allMaps);
+                if(!mapName.equalsIgnoreCase("None")){
+                    selectedMap = gs.getMapByName(mapName, allMaps);
                 } else {
                     selectedMap = gs.generateRandomMap(allMaps);
                 }

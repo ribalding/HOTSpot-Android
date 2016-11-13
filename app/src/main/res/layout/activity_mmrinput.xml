@@ -46,4 +46,5 @@
         android:layout_above="@+id/numberInputEditText"
         android:layout_centerHorizontal="true"
         android:hint="@string/name_input_hint" />
+
 </RelativeLayout>
