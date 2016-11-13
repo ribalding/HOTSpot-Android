@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">RandomHeroesGame</string>
+    <string name="app_name">HOTShit</string>
+    <string name="find_my_mmr_button_text">Find My MMR</string>
+    <string name="generate_game_button_text">Generate Game</string>
+    <string name="user_name">User Name</string>
+    <string name="quick_match">Quick Match</string>
+    <string name="unranked_draft">Unranked Draft</string>
+    <string name="hero_league">Hero League</string>
+    <string name="team_league">Team League</string>
+    <string name="name_input_hint">Name</string>
+    <string name="number_input_hint">Number</string>
+    <string name="get_mmr_submit">Submit</string>
+    <string name="team_a">Team A</string>
+    <string name="team_b">Team B</string>
+    <string name="map">Map</string>
+    <string name="hero_1">Hero 1</string>
+    <string name="hero_2">Hero 2</string>
+    <string name="hero_3">Hero 3</string>
+    <string name="hero_4">Hero 4</string>
+    <string name="hero_5">Hero 5</string>
+    <string name="hero_6">Hero 6</string>
+    <string name="hero_7">Hero 7</string>
+    <string name="hero_8">Hero 8</string>
+    <string name="hero_9">Hero 9</string>
+    <string name="hero_10">Hero 10</string>
+    <string name="hero_restrictive">Hero Restrictive</string>
+
 </resources>

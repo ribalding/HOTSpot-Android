@@ -12,12 +12,15 @@
     android:background="@color/colorPrimary">
 
     <Button
-        android:text="Submit"
+        android:text="@string/get_mmr_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/mmrSubmitButton" />
+        android:id="@+id/mmrSubmitButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -30,7 +33,7 @@
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/nameInputEditText"
         android:layout_alignStart="@+id/nameInputEditText"
-        android:hint="Number" />
+        android:hint="@string/number_input_hint" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -42,5 +45,5 @@
         android:textStyle="normal|bold"
         android:layout_above="@+id/numberInputEditText"
         android:layout_centerHorizontal="true"
-        android:hint="Name" />
+        android:hint="@string/name_input_hint" />
 </RelativeLayout>

@@ -48,7 +48,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hero 1"
+                android:text="@string/hero_1"
                 android:id="@+id/hero1ResultTextView"
                 android:textColor="#eaeaea"
                 android:layout_weight="1"/>
@@ -71,7 +71,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hero 2"
+                android:text="@string/hero_2"
                 android:id="@+id/hero2ResultTextView"
                 android:textColor="#eaeaea"
                 android:layout_weight="1"/>
@@ -94,7 +94,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hero 3"
+                android:text="@string/hero_3"
                 android:id="@+id/hero3ResultTextView"
                 android:textColor="#eaeaea"
                 android:layout_weight="1"/>
@@ -117,7 +117,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hero 4"
+                android:text="@string/hero_4"
                 android:id="@+id/hero4ResultTextView"
                 android:textColor="#eaeaea"
                 android:layout_weight="1"/>
@@ -140,7 +140,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hero 5"
+                android:text="@string/hero_5"
                 android:id="@+id/hero5ResultTextView"
                 android:textColor="#eaeaea"
                 android:layout_weight="1"/>
@@ -180,7 +180,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hero 6"
+                android:text="@string/hero_6"
                 android:id="@+id/hero6ResultTextView"
                 android:textColor="#eaeaea"
                 android:layout_weight="1"
@@ -205,33 +205,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hero 7"
+                android:text="@string/hero_7"
                 android:id="@+id/hero7ResultTextView"
-                android:textColor="#eaeaea"
-                android:layout_weight="1"
-                android:gravity="end"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layoutDirection="rtl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/hero8Layout"
-            android:layout_below="@+id/hero7Layout"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/hero8Image"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Hero 8"
-                android:id="@+id/hero8ResultTextView"
                 android:textColor="#eaeaea"
                 android:layout_weight="1"
                 android:gravity="end"/>
@@ -253,13 +228,13 @@
                 android:id="@+id/hero9Image"/>
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="331dp"
                 android:layout_height="wrap_content"
-                android:text="Hero 9"
+                android:text="@string/hero_9"
                 android:id="@+id/hero9ResultTextView"
                 android:textColor="#eaeaea"
-                android:layout_weight="1"
                 android:gravity="end"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -280,11 +255,12 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Hero 10"
+                android:text="@string/hero_10"
                 android:id="@+id/hero10ResultTextView"
                 android:textColor="#eaeaea"
-                android:layout_weight="1"
+                android:layout_weight="0.88"
                 android:gravity="end"/>
+
         </LinearLayout>
 
         <TextView
@@ -303,13 +279,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Map"
+            android:text="@string/map"
             android:id="@+id/mapResultTextView"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:textColor="#eaeaea"
             android:textStyle="bold" />
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layoutDirection="rtl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/hero8Layout"
+            android:layout_below="@+id/hero2Layout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/hero8Image"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/hero_8"
+                android:id="@+id/hero8ResultTextView"
+                android:textColor="#eaeaea"
+                android:layout_weight="1"
+                android:gravity="end"/>
+        </LinearLayout>
 
 
     </RelativeLayout>

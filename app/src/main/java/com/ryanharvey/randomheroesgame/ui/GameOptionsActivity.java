@@ -26,7 +26,6 @@ import com.ryanharvey.randomheroesgame.Constants.Constants;
 import com.ryanharvey.randomheroesgame.GameService;
 import com.ryanharvey.randomheroesgame.Models.AllHeroes;
 import com.ryanharvey.randomheroesgame.Models.GameMap;
-import com.ryanharvey.randomheroesgame.Models.Hero;
 import com.ryanharvey.randomheroesgame.R;
 
 public class GameOptionsActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
@@ -50,8 +49,8 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     private ArrayList<String> allHeroNames;
     private ArrayList<GameMap> allMaps;
     private ArrayList<String> allMapNames;
-    private SharedPreferences mSharedPreferences;
-    private SharedPreferences.Editor mEditor;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     private String heroSpinner1Choice = "None";
     private String heroSpinner2Choice = "None";
@@ -71,8 +70,8 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_options);
         ButterKnife.bind(this);
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = sharedPreferences.edit();
         submitButton.setOnClickListener(this);
 
         heroSpinner1.setOnItemSelectedListener(listener);
@@ -158,7 +157,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
             intent.putExtra("heroSpinner9Choice", heroSpinner9Choice);
             intent.putExtra("heroSpinner10Choice", heroSpinner10Choice);
             intent.putExtra("mapSpinnerChoice", mapSpinnerChoice);
-            mEditor.putBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE,
+            editor.putBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE,
                     teamRestrictiveSwitch.isChecked())
                     .apply();
 

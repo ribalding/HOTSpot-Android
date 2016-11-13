@@ -12,7 +12,7 @@
     android:background="@color/colorPrimary">
 
     <TextView
-        android:text="User Name"
+        android:text="@string/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/userNameTextView"
@@ -27,7 +27,7 @@
         android:textSize="30sp" />
 
     <TextView
-        android:text="Unranked Draft"
+        android:text="@string/unranked_draft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/unrankedDraftTextView"
@@ -42,7 +42,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Hero League"
+        android:text="@string/hero_league"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/heroLeagueTextView"
@@ -58,23 +58,7 @@
         android:layout_marginTop="20dp" />
 
     <TextView
-        android:text="Quick Match"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/quickMatchTextView"
-        android:textColor="#eaeaea"
-        android:textStyle="normal|bold"
-        android:textSize="25dp"
-        android:textAlignment="center"
-        android:layout_above="@+id/unrankedDraftTextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="20dp" />
-
-    <TextView
-        android:text="Team League"
+        android:text="@string/team_league"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/teamLeagueTextView"
@@ -88,5 +72,21 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp" />
+
+    <TextView
+        android:text="@string/quick_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/quickMatchTextView"
+        android:textColor="#eaeaea"
+        android:textStyle="normal|bold"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:layout_marginBottom="17dp"
+        android:layout_above="@+id/unrankedDraftTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

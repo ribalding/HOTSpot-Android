@@ -95,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Team A"
+            android:text="@string/team_a"
             android:id="@+id/teamATextView"
             android:layout_below="@+id/centerPointTop"
             android:layout_alignParentLeft="true"
@@ -111,7 +111,7 @@
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hero Restrictive"
+            android:text="@string/hero_restrictive"
             android:id="@+id/teamRestrictiveSwitch"
             android:textColor="#eaeaea"
             android:layout_alignParentBottom="true"
@@ -215,7 +215,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Team B"
+            android:text="@string/team_b"
             android:id="@+id/teamBTextView"
             android:textAlignment="center"
             android:textStyle="bold"
@@ -256,15 +256,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Map"
+            android:text="@string/map"
             android:id="@+id/mapTextView"
             android:textColor="#eaeaea"
             android:textStyle="bold"
             android:textSize="30dp"
-            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="30dp"
+            android:layout_alignTop="@+id/mapSelectSpinner"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="30dp" />
+            android:layout_marginStart="30dp" />
     </RelativeLayout>
 
 </RelativeLayout>

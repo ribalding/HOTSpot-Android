@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -64,7 +63,7 @@ public class GameResultsActivity extends AppCompatActivity {
 
     private ArrayList<String> teamAChoices = new ArrayList<>();
     private ArrayList<String> teamBChoices = new ArrayList<>();
-    private SharedPreferences mSharedPreferences;
+    private SharedPreferences sharedPreferences;
     private boolean teamRestrictionIsOn;
 
     @Override
@@ -72,8 +71,8 @@ public class GameResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_results);
         ButterKnife.bind(this);
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        teamRestrictionIsOn = mSharedPreferences.getBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE, true);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        teamRestrictionIsOn = sharedPreferences.getBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE, true);
 
         teamAChoices.add(getIntent().getStringExtra("heroSpinner1Choice"));
         teamAChoices.add(getIntent().getStringExtra("heroSpinner2Choice"));
@@ -161,7 +160,6 @@ public class GameResultsActivity extends AppCompatActivity {
         Picasso.with(this).load(teamB.get(4).getImageURL()).into(hero10Image);
 
         Picasso.with(this).load(selectedMap.getImageURL()).into(mapImageView);
-        Log.d("TEST", selectedMap.getImageURL());
 
     }
 
