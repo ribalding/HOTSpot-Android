@@ -1,5 +1,6 @@
 package com.ryanharvey.randomheroesgame.ui;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +27,7 @@ public class MMRResultsActivity extends AppCompatActivity {
     @BindView(R.id.heroLeagueTextView) TextView heroLeagueTextView;
 
     private MMRService mmrs = new MMRService();
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class MMRResultsActivity extends AppCompatActivity {
 
         String name = getIntent().getStringExtra("nameInput");
         String number = getIntent().getStringExtra("numberInput");
+
+        dialog = ProgressDialog.show(this, "Please Wait", "", true);
 
         mmrs.getMMRJSON(name, number, new Callback(){
 
@@ -55,6 +59,7 @@ public class MMRResultsActivity extends AppCompatActivity {
                         quickMatchTextView.setText("Quick Match: " + user.getQuickMatchMMR());
                         teamLeagueTextView.setText("Team League: " + user.getTeamLeagueMMR());
                         unrankedDraftTextView.setText("Unranked Draft: " + user.getUnrankedDraftMMR());
+                        dialog.dismiss();
                     }
                 });
             }

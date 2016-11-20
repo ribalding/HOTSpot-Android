@@ -1,5 +1,6 @@
 package com.ryanharvey.randomheroesgame.ui;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -65,6 +66,7 @@ public class GameResultsActivity extends AppCompatActivity {
     private ArrayList<String> teamBChoices = new ArrayList<>();
     private SharedPreferences sharedPreferences;
     private boolean teamRestrictionIsOn;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,8 @@ public class GameResultsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         teamRestrictionIsOn = sharedPreferences.getBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE, true);
+
+        dialog = ProgressDialog.show(this, "Generating Team", "",true);
 
         teamAChoices.add(sharedPreferences.getString("heroSpinner1Choice", Constants.NONE));
         teamAChoices.add(sharedPreferences.getString("heroSpinner2Choice", Constants.NONE));
@@ -102,6 +106,7 @@ public class GameResultsActivity extends AppCompatActivity {
                     public void run() {
                         setTeamTextViews();
                         setTeamImageViews();
+                        dialog.dismiss();
                     }
                 });
             }
