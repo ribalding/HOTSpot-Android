@@ -77,12 +77,17 @@ public class AllHeroes {
 
 
     public ArrayList<Hero> getFilteredHeroes(ArrayList<String> filters){
+
         ArrayList<Hero> filteredHeroes = new ArrayList<>();
-        for(String filter : filters){
-            for(Hero hero : this.allHeroesArrayList){
-                if (!hero.getGroup().equalsIgnoreCase(filter)){
-                    filteredHeroes.add(hero);
+        for(Hero hero : this.allHeroesArrayList){
+            Boolean filterCheck = false;
+            for(String filter : filters){
+                if (hero.getGroup().equalsIgnoreCase(filter)){
+                    filterCheck = true;
                 }
+            }
+            if(!filterCheck){
+                filteredHeroes.add(hero);
             }
         }
         return filteredHeroes;

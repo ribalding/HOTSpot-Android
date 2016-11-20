@@ -93,10 +93,10 @@ public class GameService {
         }
         for(int i = 0; i < 5 - selectedHeroes.size(); i++){
             int randomNumber = this.generateRandomNumber(allHeroes.getAllHeroes().size());
-            Hero selectedHero = allHeroes.getAllHeroes().get(randomNumber);
+            Hero selectedHero = this.getWeightedHero(allHeroes, team);
             if (teamRestrictive) {
                 while (team.contains(selectedHero)) {
-                    selectedHero = allHeroes.getAllHeroes().get(this.generateRandomNumber(allHeroes.getAllHeroes().size()));
+                    selectedHero = this.getWeightedHero(allHeroes, team);
                 }
             }
             team.add(selectedHero);
@@ -106,7 +106,7 @@ public class GameService {
 
     //Generate Random Map
     public GameMap generateRandomMap(ArrayList<GameMap> allMaps){
-        int randomNumber = this.generateRandomNumber(allMaps.size() + 1);
+        int randomNumber = this.generateRandomNumber(allMaps.size());
         return allMaps.get(randomNumber);
     }
 
@@ -171,19 +171,23 @@ public class GameService {
         ArrayList<String> heroFilters = new ArrayList<>();
 
         for(int i = 0; i < 4; i++) {
-            if (i == 0 && nums.get(i) >= 1) {
+            if (i == 0 && nums.get(i) > 1) {
                 heroFilters.add("Warrior");
-            } else if (i== 1 && assassin >= 2) {
+            } else if (i== 1 && assassin > 1) {
                 heroFilters.add("Assassin");
-            } else if (i == 2 && spec >= 1) {
+            } else if (i == 2 && spec > 0) {
                 heroFilters.add("Specialist");
-            } else if (i == 3 && support >= 1) {
+            } else if (i == 3 && support > 1) {
                 heroFilters.add("Support");
             }
         }
 
         ArrayList<Hero> filteredHeroes = allHeroes.getFilteredHeroes(heroFilters);
-        return filteredHeroes.get(generateRandomNumber(filteredHeroes.size()));
+        if(filteredHeroes.size() > 0) {
+            return filteredHeroes.get(generateRandomNumber(filteredHeroes.size() - 1));
+        } else {
+            return allHeroes.getAllHeroes().get(generateRandomNumber(allHeroes.getAllHeroes().size() - 1));
         }
+    }
 }
 

@@ -157,7 +157,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
                     .putString("heroSpinner7Choice", heroSpinner7Choice)
                     .putString("heroSpinner8Choice", heroSpinner8Choice)
                     .putString("heroSpinner9Choice", heroSpinner9Choice)
-                    .putString("heroSpinnger10Choice", heroSpinner10Choice)
+                    .putString("heroSpinner10Choice", heroSpinner10Choice)
                     .putString("mapSpinnerChoice", mapSpinnerChoice)
                     .putBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE, teamRestrictiveSwitch.isChecked())
                     .apply();
