@@ -41,16 +41,16 @@ public class GameResultsActivity extends AppCompatActivity {
     @BindView(R.id.hero9ResultTextView) TextView hero9ResultTextView;
     @BindView(R.id.hero10ResultTextView) TextView hero10ResultTextView;
 
-    @BindView((R.id.hero1Image)) ImageButton hero1Image;
-    @BindView((R.id.hero2Image)) ImageButton hero2Image;
-    @BindView((R.id.hero3Image)) ImageButton hero3Image;
-    @BindView((R.id.hero4Image)) ImageButton hero4Image;
-    @BindView((R.id.hero5Image)) ImageButton hero5Image;
-    @BindView((R.id.hero6Image)) ImageButton hero6Image;
-    @BindView((R.id.hero7Image)) ImageButton hero7Image;
-    @BindView((R.id.hero8Image)) ImageButton hero8Image;
-    @BindView((R.id.hero9Image)) ImageButton hero9Image;
-    @BindView((R.id.hero10Image)) ImageButton hero10Image;
+    @BindView((R.id.hero1Image)) ImageView hero1Image;
+    @BindView((R.id.hero2Image)) ImageView hero2Image;
+    @BindView((R.id.hero3Image)) ImageView hero3Image;
+    @BindView((R.id.hero4Image)) ImageView hero4Image;
+    @BindView((R.id.hero5Image)) ImageView hero5Image;
+    @BindView((R.id.hero6Image)) ImageView hero6Image;
+    @BindView((R.id.hero7Image)) ImageView hero7Image;
+    @BindView((R.id.hero8Image)) ImageView hero8Image;
+    @BindView((R.id.hero9Image)) ImageView hero9Image;
+    @BindView((R.id.hero10Image)) ImageView hero10Image;
 
     @BindView(R.id.mapResultTextView) TextView mapResultTextView;
     @BindView(R.id.mapImageView) ImageView mapImageView;
@@ -155,17 +155,17 @@ public class GameResultsActivity extends AppCompatActivity {
 
     public void setTeamImageViews() {
 
-        Picasso.with(this).load(teamA.get(0).getImageURL()).into(hero1Image);
-        Picasso.with(this).load(teamA.get(1).getImageURL()).into(hero2Image);
-        Picasso.with(this).load(teamA.get(2).getImageURL()).into(hero3Image);
-        Picasso.with(this).load(teamA.get(3).getImageURL()).into(hero4Image);
-        Picasso.with(this).load(teamA.get(4).getImageURL()).into(hero5Image);
+        Picasso.with(this).load(teamA.get(0).getImageURL()).resize(160, 160).into(hero1Image);
+        Picasso.with(this).load(teamA.get(1).getImageURL()).resize(160, 160).into(hero2Image);
+        Picasso.with(this).load(teamA.get(2).getImageURL()).resize(160, 160).into(hero3Image);
+        Picasso.with(this).load(teamA.get(3).getImageURL()).resize(160, 160).into(hero4Image);
+        Picasso.with(this).load(teamA.get(4).getImageURL()).resize(160, 160).into(hero5Image);
 
-        Picasso.with(this).load(teamB.get(0).getImageURL()).into(hero6Image);
-        Picasso.with(this).load(teamB.get(1).getImageURL()).into(hero7Image);
-        Picasso.with(this).load(teamB.get(2).getImageURL()).into(hero8Image);
-        Picasso.with(this).load(teamB.get(3).getImageURL()).into(hero9Image);
-        Picasso.with(this).load(teamB.get(4).getImageURL()).into(hero10Image);
+        Picasso.with(this).load(teamB.get(0).getImageURL()).resize(160, 160).into(hero6Image);
+        Picasso.with(this).load(teamB.get(1).getImageURL()).resize(160, 160).into(hero7Image);
+        Picasso.with(this).load(teamB.get(2).getImageURL()).resize(160, 160).into(hero8Image);
+        Picasso.with(this).load(teamB.get(3).getImageURL()).resize(160, 160).into(hero9Image);
+        Picasso.with(this).load(teamB.get(4).getImageURL()).resize(160, 160).into(hero10Image);
 
     }
 

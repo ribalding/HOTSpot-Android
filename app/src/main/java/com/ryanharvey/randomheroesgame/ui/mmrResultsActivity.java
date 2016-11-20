@@ -38,7 +38,7 @@ public class MMRResultsActivity extends AppCompatActivity {
         String name = getIntent().getStringExtra("nameInput");
         String number = getIntent().getStringExtra("numberInput");
 
-        dialog = ProgressDialog.show(this, "Please Wait", "", true);
+        dialog = ProgressDialog.show(this, getString(R.string.please_wait), "", true);
 
         mmrs.getMMRJSON(name, number, new Callback(){
 
@@ -55,10 +55,10 @@ public class MMRResultsActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         userNameTextView.setText(user.getName());
-                        heroLeagueTextView.setText("Hero League: " + user.getHeroLeagueMMR());
-                        quickMatchTextView.setText("Quick Match: " + user.getQuickMatchMMR());
-                        teamLeagueTextView.setText("Team League: " + user.getTeamLeagueMMR());
-                        unrankedDraftTextView.setText("Unranked Draft: " + user.getUnrankedDraftMMR());
+                        heroLeagueTextView.setText(getString(R.string.hero_league_colon,user.getHeroLeagueMMR()));
+                        quickMatchTextView.setText(getString(R.string.quick_match_colon, user.getQuickMatchMMR()));
+                        teamLeagueTextView.setText(getString(R.string.team_league_colon, user.getTeamLeagueMMR()));
+                        unrankedDraftTextView.setText(getString(R.string.unranked_draft_colon, user.getUnrankedDraftMMR()));
                         dialog.dismiss();
                     }
                 });

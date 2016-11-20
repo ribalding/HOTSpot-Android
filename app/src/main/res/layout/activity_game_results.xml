@@ -18,12 +18,25 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        android:id="@+id/mapImageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/mapResultTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/centerPoint"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/relativeLayout">
+        android:id="@+id/relativeLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/centerPoint">
 
         <TextView
             android:layout_width="0dp"
@@ -40,10 +53,11 @@
             android:layout_alignEnd="@+id/centerPointTop"
             android:id="@+id/hero1Layout">
 
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/hero1Image"/>
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:id="@+id/hero1Image" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -63,10 +77,11 @@
             android:layout_alignEnd="@+id/centerPointTop"
             android:id="@+id/hero2Layout">
 
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/hero2Image"/>
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:id="@+id/hero2Image" />
 
             <TextView
                 android:layout_width="0dp"
@@ -86,10 +101,11 @@
             android:layout_alignEnd="@+id/centerPointTop"
             android:id="@+id/hero3Layout">
 
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/hero3Image"/>
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:id="@+id/hero3Image" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -109,10 +125,11 @@
             android:layout_alignEnd="@+id/centerPointTop"
             android:id="@+id/hero4Layout">
 
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/hero4Image"/>
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:id="@+id/hero4Image" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -132,10 +149,11 @@
             android:layout_alignEnd="@+id/centerPointTop"
             android:id="@+id/hero5Layout">
 
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/hero5Image"/>
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:id="@+id/hero5Image" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -172,10 +190,11 @@
             android:layout_alignStart="@id/centerPointTop"
             android:id="@+id/hero6Layout">
 
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/hero6Image"/>
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:id="@+id/hero6Image" />
 
             <TextView
                 android:layout_width="0dp"
@@ -183,8 +202,9 @@
                 android:text="@string/hero_6"
                 android:id="@+id/hero6ResultTextView"
                 android:textColor="#eaeaea"
-                android:layout_weight="1"
+                android:layout_weight="0.88"
                 android:gravity="end"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -197,10 +217,11 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
 
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/hero7Image"/>
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:id="@+id/hero7Image" />
 
             <TextView
                 android:layout_width="0dp"
@@ -210,6 +231,7 @@
                 android:textColor="#eaeaea"
                 android:layout_weight="1"
                 android:gravity="end"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -222,10 +244,11 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
 
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/hero9Image"/>
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:id="@+id/hero9Image" />
 
             <TextView
                 android:layout_width="331dp"
@@ -247,10 +270,11 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
 
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/hero10Image"/>
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:id="@+id/hero10Image" />
 
             <TextView
                 android:layout_width="0dp"
@@ -275,17 +299,6 @@
             android:layout_alignParentEnd="true"
             android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/map"
-            android:id="@+id/mapResultTextView"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:textColor="#eaeaea"
-            android:textStyle="bold" />
-
         <LinearLayout
             android:orientation="horizontal"
             android:layoutDirection="rtl"
@@ -296,10 +309,11 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
 
-            <ImageButton
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/hero8Image"/>
+                app:srcCompat="@android:drawable/ic_input_add"
+                android:id="@+id/hero8Image" />
 
             <TextView
                 android:layout_width="0dp"
@@ -309,20 +323,21 @@
                 android:textColor="#eaeaea"
                 android:layout_weight="1"
                 android:gravity="end"/>
+
         </LinearLayout>
 
 
     </RelativeLayout>
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_edit"
-        android:layout_below="@+id/relativeLayout"
-        android:id="@+id/mapImageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/map"
+        android:id="@+id/mapResultTextView"
+        android:textColor="#eaeaea"
+        android:textStyle="bold"
+        android:layout_below="@+id/centerPoint"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

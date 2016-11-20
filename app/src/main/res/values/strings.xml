@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">HOTShit</string>
     <string name="find_my_mmr_button_text">Find My MMR</string>
     <string name="generate_game_button_text">Generate Game</string>
@@ -24,5 +25,10 @@
     <string name="hero_9">Hero 9</string>
     <string name="hero_10">Hero 10</string>
     <string name="hero_restrictive">Hero Restrictive</string>
+    <string name="hero_league_colon">Hero League: %1$s</string>
+    <string name="unranked_draft_colon">Unranked Draft: %1$s</string>
+    <string name="team_league_colon">Team League: %1$s</string>
+    <string name="quick_match_colon">Quick Match: %1$s</string>
+    <string name="please_wait">Please Wait</string>
 
 </resources>
