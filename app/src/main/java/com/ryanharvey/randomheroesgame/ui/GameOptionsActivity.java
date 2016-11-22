@@ -43,6 +43,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     @BindView(R.id.mapSelectSpinner) Spinner mapSelectSpinner;
     @BindView(R.id.submitButton) Button submitButton;
     @BindView(R.id.teamRestrictiveSwitch) Switch teamRestrictiveSwitch;
+    @BindView(R.id.globalRestrictiveSwitch) Switch globalRestrictiveSwitch;
 
     private GameService gs = new GameService();
     private AllHeroes allHeroes = new AllHeroes();
@@ -160,6 +161,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
                     .putString("heroSpinner10Choice", heroSpinner10Choice)
                     .putString("mapSpinnerChoice", mapSpinnerChoice)
                     .putBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE, teamRestrictiveSwitch.isChecked())
+                    .putBoolean(Constants.PREFERENCES_GLOBAL_RESTRICTIVE, globalRestrictiveSwitch.isChecked())
                     .apply();
 
             startActivity(intent);
