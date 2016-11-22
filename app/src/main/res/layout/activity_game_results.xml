@@ -65,7 +65,8 @@
                 android:text="@string/hero_1"
                 android:id="@+id/hero1ResultTextView"
                 android:textColor="#eaeaea"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:paddingLeft="5dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -89,7 +90,8 @@
                 android:text="@string/hero_2"
                 android:id="@+id/hero2ResultTextView"
                 android:textColor="#eaeaea"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:paddingLeft="5dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -113,7 +115,8 @@
                 android:text="@string/hero_3"
                 android:id="@+id/hero3ResultTextView"
                 android:textColor="#eaeaea"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:paddingLeft="5dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -137,7 +140,8 @@
                 android:text="@string/hero_4"
                 android:id="@+id/hero4ResultTextView"
                 android:textColor="#eaeaea"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:paddingLeft="5dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -161,7 +165,8 @@
                 android:text="@string/hero_5"
                 android:id="@+id/hero5ResultTextView"
                 android:textColor="#eaeaea"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:paddingLeft="5dp" />
         </LinearLayout>
 
         <TextView
@@ -203,7 +208,8 @@
                 android:id="@+id/hero6ResultTextView"
                 android:textColor="#eaeaea"
                 android:layout_weight="0.88"
-                android:gravity="end"/>
+                android:gravity="end"
+                android:paddingRight="5dp" />
 
         </LinearLayout>
 
@@ -230,7 +236,8 @@
                 android:id="@+id/hero7ResultTextView"
                 android:textColor="#eaeaea"
                 android:layout_weight="1"
-                android:gravity="end"/>
+                android:gravity="end"
+                android:paddingRight="5dp" />
 
         </LinearLayout>
 
@@ -256,7 +263,8 @@
                 android:text="@string/hero_9"
                 android:id="@+id/hero9ResultTextView"
                 android:textColor="#eaeaea"
-                android:gravity="end"/>
+                android:gravity="end"
+                android:paddingRight="5dp" />
 
         </LinearLayout>
 
@@ -283,7 +291,8 @@
                 android:id="@+id/hero10ResultTextView"
                 android:textColor="#eaeaea"
                 android:layout_weight="0.88"
-                android:gravity="end"/>
+                android:gravity="end"
+                android:paddingRight="5dp" />
 
         </LinearLayout>
 
@@ -322,7 +331,8 @@
                 android:id="@+id/hero8ResultTextView"
                 android:textColor="#eaeaea"
                 android:layout_weight="1"
-                android:gravity="end"/>
+                android:gravity="end"
+                android:paddingRight="5dp" />
 
         </LinearLayout>
 

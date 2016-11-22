@@ -1,14 +1,18 @@
 package com.ryanharvey.randomheroesgame.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import com.ryanharvey.randomheroesgame.Constants.Constants;
 import com.ryanharvey.randomheroesgame.R;
 
 public class MMRInputActivity extends AppCompatActivity implements View.OnClickListener{
@@ -16,6 +20,7 @@ public class MMRInputActivity extends AppCompatActivity implements View.OnClickL
     @BindView (R.id.mmrSubmitButton) Button mmrSubmitButton;
     @BindView (R.id.nameInputEditText) EditText nameInputEditText;
     @BindView (R.id.numberInputEditText) EditText numberInputEditText;
+    @BindView(R.id.mmrInfoLink) TextView mmrInfoLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,7 @@ public class MMRInputActivity extends AppCompatActivity implements View.OnClickL
         ButterKnife.bind(this);
 
         mmrSubmitButton.setOnClickListener(this);
+        mmrInfoLink.setOnClickListener(this);
     }
 
     @Override
@@ -35,6 +41,9 @@ public class MMRInputActivity extends AppCompatActivity implements View.OnClickL
                 intent.putExtra("numberInput", numberInputEditText.getText().toString());
                 startActivity(intent);
             }
+        } else if (view == mmrInfoLink) {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.MMR_INFO_REDDIT_ARTICLE_LINK));
+            startActivity(browserIntent);
         }
     }
 

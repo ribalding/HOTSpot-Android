@@ -203,7 +203,15 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     };
 
     @Override
-    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {}
 
+    //Not Finished
+    public boolean choGallCheck(ArrayList<String> teamNames){
+        if((teamNames.contains("Cho") && !teamNames.contains("Gall"))||
+                (teamNames.contains("Gall") && !teamNames.contains("Cho"))){
+            return false;
+        } else {
+            return true;
+        }
     }
 }

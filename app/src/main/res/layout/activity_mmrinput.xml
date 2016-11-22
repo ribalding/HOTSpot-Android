@@ -8,19 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ryanharvey.randomheroesgame.ui.MMRInputActivity"
+    tools:context="com.ryanharvey.randomheroesgame.ui.MMRInputActivity"
     android:background="@color/colorPrimary">
-
-    <Button
-        android:text="@string/get_mmr_submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/mmrSubmitButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -33,7 +22,8 @@
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/nameInputEditText"
         android:layout_alignStart="@+id/nameInputEditText"
-        android:hint="@string/number_input_hint" />
+        android:hint="@string/number_input_hint"
+        android:textSize="24sp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -45,6 +35,35 @@
         android:textStyle="normal|bold"
         android:layout_above="@+id/numberInputEditText"
         android:layout_centerHorizontal="true"
-        android:hint="@string/name_input_hint" />
+        android:hint="@string/gamertag_input_hint"
+        android:textSize="24sp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Click here to learn more about MMR"
+        android:textSize="14sp"
+        android:autoLink="web"
+        android:layout_below="@+id/numberInputEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:id="@+id/mmrInfoLink"
+        android:textColorLink="@color/colorAccent"
+        android:clickable="true" />
+
+    <Button
+        android:text="@string/get_mmr_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mmrSubmitButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/colorAccent"
+        android:textColor="#eaeaea" />
 
 </RelativeLayout>

@@ -10,4 +10,5 @@ public class Constants {
     public static final String PREFERENCES_TEAM_RESTRICTIVE = "teamRestrictiveChoice";
     public static final String PREFERENCES_GLOBAL_RESTRICTIVE = "globalRestrictiveChoice";
     public static final String NONE = "None";
+    public static final String MMR_INFO_REDDIT_ARTICLE_LINK = "https://www.reddit.com/r/heroesofthestorm/comments/371zbo/can_someone_explain_to_me_what_mmr_is/";
 }

@@ -44,7 +44,7 @@ public class MMRResultsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call call, IOException e) {
-
+                e.printStackTrace();
             }
 
             @Override

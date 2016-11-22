@@ -8,7 +8,7 @@
     <string name="unranked_draft">Unranked Draft</string>
     <string name="hero_league">Hero League</string>
     <string name="team_league">Team League</string>
-    <string name="name_input_hint">Name</string>
+    <string name="gamertag_input_hint">Gamer Tag</string>
     <string name="number_input_hint">Number</string>
     <string name="get_mmr_submit">Submit</string>
     <string name="team_a">Team A</string>
