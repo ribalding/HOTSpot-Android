@@ -1,11 +1,13 @@
 package com.ryanharvey.randomheroesgame.ui;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ryanharvey.randomheroesgame.MMRService;
 import com.ryanharvey.randomheroesgame.Models.User;
@@ -58,12 +60,18 @@ public class MMRResultsActivity extends AppCompatActivity {
                 MMRResultsActivity.this.runOnUiThread(new Runnable(){
                     @Override
                     public void run() {
-                        userNameTextView.setText(user.getName());
-                        heroLeagueTextView.setText(getString(R.string.hero_league_colon,user.getHeroLeagueMMR()));
-                        quickMatchTextView.setText(getString(R.string.quick_match_colon, user.getQuickMatchMMR()));
-                        teamLeagueTextView.setText(getString(R.string.team_league_colon, user.getTeamLeagueMMR()));
-                        unrankedDraftTextView.setText(getString(R.string.unranked_draft_colon, user.getUnrankedDraftMMR()));
-                        dialog.dismiss();
+                        if(user.getName() != null) {
+                            userNameTextView.setText(user.getName());
+                            heroLeagueTextView.setText(getString(R.string.hero_league_colon, user.getHeroLeagueMMR()));
+                            quickMatchTextView.setText(getString(R.string.quick_match_colon, user.getQuickMatchMMR()));
+                            teamLeagueTextView.setText(getString(R.string.team_league_colon, user.getTeamLeagueMMR()));
+                            unrankedDraftTextView.setText(getString(R.string.unranked_draft_colon, user.getUnrankedDraftMMR()));
+                            dialog.dismiss();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "User Not Found, Please Try Again", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MMRResultsActivity.this, MMRInputActivity.class);
+                            startActivity(intent);
+                        }
                     }
                 });
             }

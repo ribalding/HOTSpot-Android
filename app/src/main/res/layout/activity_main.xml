@@ -11,16 +11,6 @@
     android:background="@color/colorPrimary"
     android:elevation="0dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="50dp"
-        android:id="@+id/titleTextView"
-        android:textColor="#eaeaea"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
     <Button
         android:text="@string/find_my_mmr_button_text"
         android:layout_width="wrap_content"
@@ -46,4 +36,15 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:textColor="#eaeaea" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="50dp"
+        android:id="@+id/titleTextView"
+        android:textColor="#eaeaea"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp" />
 </RelativeLayout>
