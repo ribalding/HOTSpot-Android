@@ -1,5 +1,6 @@
 package com.ryanharvey.randomheroesgame.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -50,6 +51,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     private ArrayList<GameMap> allMaps;
     private ArrayList<String> allMapNames;
     private SharedPreferences.Editor editor;
+    private ProgressDialog dialog;
 
     private String heroSpinner1Choice = Constants.NONE;
     private String heroSpinner2Choice = Constants.NONE;
@@ -72,6 +74,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
         submitButton.setOnClickListener(this);
+        dialog = ProgressDialog.show(this, getString(R.string.please_wait), "", true);
 
         heroSpinner1.setOnItemSelectedListener(listener);
         heroSpinner2.setOnItemSelectedListener(listener);
@@ -112,6 +115,8 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
                         heroSpinner8.setAdapter(heroSpinnerAdapter);
                         heroSpinner9.setAdapter(heroSpinnerAdapter);
                         heroSpinner10.setAdapter(heroSpinnerAdapter);
+
+                        dialog.dismiss();
                     }
                 });
             }

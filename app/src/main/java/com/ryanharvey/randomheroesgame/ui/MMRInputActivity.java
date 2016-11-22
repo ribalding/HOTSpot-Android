@@ -1,6 +1,7 @@
 package com.ryanharvey.randomheroesgame.ui;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ public class MMRInputActivity extends AppCompatActivity implements View.OnClickL
     @BindView (R.id.nameInputEditText) EditText nameInputEditText;
     @BindView (R.id.numberInputEditText) EditText numberInputEditText;
     @BindView(R.id.mmrInfoLink) TextView mmrInfoLink;
+    @BindView (R.id.findMyMMRTextView) TextView findMyMMRTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,10 @@ public class MMRInputActivity extends AppCompatActivity implements View.OnClickL
 
         mmrSubmitButton.setOnClickListener(this);
         mmrInfoLink.setOnClickListener(this);
+
+        Typeface fortySecondStreetFont = Typeface.createFromAsset(getAssets(), "fonts/FORTSSH_.ttf");
+        findMyMMRTextView.setTypeface(fortySecondStreetFont);
+
     }
 
     @Override

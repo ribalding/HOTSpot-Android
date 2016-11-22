@@ -47,11 +47,13 @@
         android:layout_below="@+id/numberInputEditText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:textAlignment="center"
         android:id="@+id/mmrInfoLink"
         android:textColorLink="@color/colorAccent"
-        android:clickable="true" />
+        android:clickable="true"
+        android:textColor="#eaeaea"
+        android:textStyle="normal|bold" />
 
     <Button
         android:text="@string/get_mmr_submit"
@@ -65,5 +67,16 @@
         android:layout_alignParentEnd="true"
         android:background="@color/colorAccent"
         android:textColor="#eaeaea" />
+
+    <TextView
+        android:text="Find My MMR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/findMyMMRTextView"
+        android:textSize="34sp"
+        android:layout_marginTop="40dp"
+        android:textColor="#eaeaea"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

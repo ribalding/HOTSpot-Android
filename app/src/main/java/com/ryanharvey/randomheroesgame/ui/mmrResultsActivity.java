@@ -1,6 +1,7 @@
 package com.ryanharvey.randomheroesgame.ui;
 
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,6 +38,9 @@ public class MMRResultsActivity extends AppCompatActivity {
 
         String name = getIntent().getStringExtra("nameInput");
         String number = getIntent().getStringExtra("numberInput");
+
+        Typeface fortySecondStreetFont = Typeface.createFromAsset(getAssets(), "fonts/FORTSSH_.ttf");
+        userNameTextView.setTypeface(fortySecondStreetFont);
 
         dialog = ProgressDialog.show(this, getString(R.string.please_wait), "", true);
 
