@@ -223,8 +223,7 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         if (viewsList.contains(view)) {
-            Intent i = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(gameRoster.get(viewsList.indexOf(view)).getHotsLogsURI() ));
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(gameRoster.get(viewsList.indexOf(view)).getHotsLogsURI() ));
             startActivity(i);
         }
     }
