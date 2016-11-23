@@ -1,10 +1,13 @@
 package com.ryanharvey.randomheroesgame.ui;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +19,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,7 +31,7 @@ import com.ryanharvey.randomheroesgame.Models.GameMap;
 import com.ryanharvey.randomheroesgame.Models.Hero;
 import com.ryanharvey.randomheroesgame.R;
 
-public class GameResultsActivity extends AppCompatActivity {
+public class GameResultsActivity extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.hero1ResultTextView) TextView hero1ResultTextView;
     @BindView(R.id.hero2ResultTextView) TextView hero2ResultTextView;
@@ -60,11 +64,13 @@ public class GameResultsActivity extends AppCompatActivity {
     private ArrayList<Hero> teamB;
     private GameMap selectedMap;
     private GameService gs = new GameService();
-
+    private ArrayList<Hero> gameRoster = new ArrayList<>();
+    private ArrayList<View> viewsList = new ArrayList<>();
     private ArrayList<String> teamAChoices = new ArrayList<>();
     private ArrayList<String> teamBChoices = new ArrayList<>();
     private SharedPreferences sharedPreferences;
     private boolean teamRestrictionIsOn;
+    private boolean globalRestrictionIsOn;
     private ProgressDialog dialog;
 
     @Override
@@ -74,8 +80,26 @@ public class GameResultsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         teamRestrictionIsOn = sharedPreferences.getBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE, true);
+        globalRestrictionIsOn = sharedPreferences.getBoolean(Constants.PREFERENCES_GLOBAL_RESTRICTIVE, false);
 
         dialog = ProgressDialog.show(this, "Generating Team", "",true);
+
+        hero1Image.setOnClickListener(this);
+        hero2Image.setOnClickListener(this);
+        hero3Image.setOnClickListener(this);
+        hero4Image.setOnClickListener(this);
+        hero5Image.setOnClickListener(this);
+        hero6Image.setOnClickListener(this);
+        hero7Image.setOnClickListener(this);
+        hero8Image.setOnClickListener(this);
+        hero9Image.setOnClickListener(this);
+        hero10Image.setOnClickListener(this);
+
+        View[] views = new View[] {
+                hero1Image, hero2Image, hero3Image, hero4Image, hero5Image,
+                hero6Image, hero7Image, hero8Image, hero9Image, hero10Image
+        };
+        viewsList.addAll(Arrays.asList(views));
 
         teamAChoices.add(sharedPreferences.getString("heroSpinner1Choice", Constants.NONE));
         teamAChoices.add(sharedPreferences.getString("heroSpinner2Choice", Constants.NONE));
@@ -88,7 +112,6 @@ public class GameResultsActivity extends AppCompatActivity {
         teamBChoices.add(sharedPreferences.getString("heroSpinner9Choice", Constants.NONE));
         teamBChoices.add(sharedPreferences.getString("heroSpinner10Choice", Constants.NONE));
 
-
         gs.getAllHeroesJSON(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {}
@@ -97,8 +120,19 @@ public class GameResultsActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 allHeroes.setAllHeroes(gs.processHeroes(response));
 
-                    teamA = gs.generateTeam(allHeroes, generateSelectedHeroes(teamAChoices), teamRestrictionIsOn);
-                    teamB = gs.generateTeam(allHeroes, generateSelectedHeroes(teamBChoices), teamRestrictionIsOn);
+                teamA = gs.generateTeam(allHeroes, generateSelectedHeroes(teamAChoices), "teamA", teamRestrictionIsOn);
+                teamB = gs.generateTeam(allHeroes, generateSelectedHeroes(teamBChoices), "teamB", teamRestrictionIsOn);
+
+                if (globalRestrictionIsOn) {
+                    gs.globalRestrict(allHeroes, teamA, teamB);
+                }
+
+                for (Hero hero : teamA) {
+                    gameRoster.add(hero);
+                }
+                for (Hero hero : teamB) {
+                    gameRoster.add(hero);
+                }
 
                 GameResultsActivity.this.runOnUiThread(new Runnable() {
                     @Override
@@ -184,6 +218,15 @@ public class GameResultsActivity extends AppCompatActivity {
             }
         }
         return selectedHeroes;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (viewsList.contains(view)) {
+            Intent i = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(gameRoster.get(viewsList.indexOf(view)).getHotsLogsURI() ));
+            startActivity(i);
+        }
     }
 }
 

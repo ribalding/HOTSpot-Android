@@ -49,6 +49,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     @BindView(R.id.teamATextView) TextView teamATextView;
     @BindView(R.id.teamBTextView) TextView teamBTextView;
     @BindView(R.id.mapTextView) TextView mapTextView;
+    @BindView(R.id.globalRestrictiveSwitch) Switch globalRestrictiveSwitch;
 
     private GameService gs = new GameService();
     private AllHeroes allHeroes = new AllHeroes();
@@ -99,6 +100,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
         heroSpinner10.setOnItemSelectedListener(listener);
         mapSelectSpinner.setOnItemSelectedListener(listener);
         teamRestrictiveSwitch.setOnCheckedChangeListener(this);
+        globalRestrictiveSwitch.setOnCheckedChangeListener(this);
 
         gs.getAllHeroesJSON(new Callback(){
 
@@ -161,6 +163,8 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if (view == submitButton){
             Intent intent = new Intent(GameOptionsActivity.this, GameResultsActivity.class);
+            boolean globalRestrictBool = globalRestrictiveSwitch.isChecked();
+
 
             //TODO: Refactor this to be in its own method
 
@@ -176,6 +180,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
                     .putString("heroSpinner10Choice", heroSpinner10Choice)
                     .putString("mapSpinnerChoice", mapSpinnerChoice)
                     .putBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE, teamRestrictiveSwitch.isChecked())
+                    .putBoolean(Constants.PREFERENCES_GLOBAL_RESTRICTIVE, globalRestrictiveSwitch.isChecked())
                     .apply();
 
             startActivity(intent);

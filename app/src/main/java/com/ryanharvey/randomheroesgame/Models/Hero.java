@@ -1,5 +1,7 @@
 package com.ryanharvey.randomheroesgame.Models;
 
+import com.ryanharvey.randomheroesgame.Constants.Constants;
+
 /**
  * Created by Ryan on 11/3/2016.
  */
@@ -10,6 +12,7 @@ public class Hero {
     private String group;
     private String subGroup;
     private boolean isSet;
+    private String hotsLogsURI;
 
     public Hero(){}
 
@@ -19,6 +22,7 @@ public class Hero {
         this.imageURL = "http://d1i1jxrdh2kvwy.cloudfront.net/Images/Heroes/Portraits/" + imageURL + ".png";
         this.group = group;
         this.subGroup = subGroup;
+        this.hotsLogsURI = Constants.HOTSLOGS_HERO_BASE_URL + name;
     }
 
     public String getPrimaryName() {
@@ -61,5 +65,8 @@ public class Hero {
         this.subGroup = subGroup;
     }
 
+    public String getHotsLogsURI() {
+        return hotsLogsURI;
+    }
 
 }
