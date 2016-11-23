@@ -86,6 +86,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
         heroSpinner10.setOnItemSelectedListener(listener);
         mapSelectSpinner.setOnItemSelectedListener(listener);
         teamRestrictiveSwitch.setOnCheckedChangeListener(this);
+        globalRestrictiveSwitch.setOnCheckedChangeListener(this);
 
         gs.getAllHeroesJSON(new Callback(){
 
@@ -146,6 +147,8 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if (view == submitButton){
             Intent intent = new Intent(GameOptionsActivity.this, GameResultsActivity.class);
+            boolean globalRestrictBool = globalRestrictiveSwitch.isChecked();
+
 
             //TODO: Refactor this to be in its own method
 

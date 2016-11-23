@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 import okhttp3.Call;
@@ -85,14 +86,13 @@ public class GameService {
     }
 
     //Generate team based on user selections
-    public ArrayList<Hero> generateTeam(AllHeroes allHeroes, ArrayList<Hero> selectedHeroes, boolean teamRestrictive){
+    public ArrayList<Hero> generateTeam(AllHeroes allHeroes, ArrayList<Hero> selectedHeroes, String teamName, boolean teamRestrictive){
 
         ArrayList<Hero> team = new ArrayList<>();
         for(Hero hero : selectedHeroes){
             team.add(hero);
         }
         for(int i = 0; i < 5 - selectedHeroes.size(); i++){
-            int randomNumber = this.generateRandomNumber(allHeroes.getAllHeroes().size());
             Hero selectedHero = this.getWeightedHero(allHeroes, team);
             if (teamRestrictive) {
                 while (team.contains(selectedHero)) {
@@ -102,6 +102,17 @@ public class GameService {
             team.add(selectedHero);
         }
         return team;
+    }
+
+    public void globalRestrict(AllHeroes allHeroes, ArrayList<Hero> teamA, ArrayList<Hero> teamB) {
+        if (!Collections.disjoint(teamA, teamB)) {
+            int coinFlip = generateRandomNumber(2);
+            if (coinFlip == 0) {
+                this.replaceMatchingHeroes(allHeroes, teamA, teamB);
+            } else {
+                this.replaceMatchingHeroes(allHeroes, teamB, teamA);
+            }
+        }
     }
 
     //Generate Random Map
@@ -188,6 +199,16 @@ public class GameService {
         } else {
             return allHeroes.getAllHeroes().get(generateRandomNumber(allHeroes.getAllHeroes().size() - 1));
         }
+    }
+
+    public ArrayList<Hero> replaceMatchingHeroes (AllHeroes allHeroes, ArrayList<Hero> team, ArrayList<Hero> otherTeam) {
+        team.removeAll(otherTeam);
+        while (team.size() < 5) {
+            Hero newHero = this.getWeightedHero(allHeroes, team);
+            team.add(newHero);
+            team.removeAll(otherTeam);
+        }
+        return team;
     }
 }
 
