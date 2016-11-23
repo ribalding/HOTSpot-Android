@@ -31,21 +31,32 @@ public class MMRService {
 
     public User processUser(Response response){
         User newUser = new User();
+        JSONObject quickMatchRankingsJSONObject = null;
+        JSONObject heroLeagueRankingsJSONObject = null;
+        JSONObject teamLeagueRankingsJSONObject = null;
+        JSONObject unrankedDraftRankingsJSONObject = null;
         try {
             JSONObject userJSONObject = new JSONObject(response.body().string());
             Log.d("TESTOBJECT", userJSONObject.toString());
             JSONArray leaderboardRankingsJSONArray = userJSONObject.getJSONArray("LeaderboardRankings");
-            JSONObject quickMatchRankingsJSONObject = leaderboardRankingsJSONArray.getJSONObject(0);
-            JSONObject heroLeagueRankingsJSONObject = leaderboardRankingsJSONArray.getJSONObject(1);
-            JSONObject teamLeagueRankingsJSONObject = leaderboardRankingsJSONArray.getJSONObject(2);
-            JSONObject unrankedDraftRankingsJSONObject = leaderboardRankingsJSONArray.getJSONObject(3);
-
+            for (int i = 0; i < leaderboardRankingsJSONArray.length(); i++) {
+                JSONObject gameMode = leaderboardRankingsJSONArray.getJSONObject(i);
+                if (gameMode.getString("GameMode").equals("QuickMatch")) {
+                    quickMatchRankingsJSONObject = gameMode;
+                } else if (gameMode.getString("GameMode").equals("HeroLeague")) {
+                    heroLeagueRankingsJSONObject = gameMode;
+                } else if (gameMode.getString("GameMode").equals("TeamLeague")) {
+                    teamLeagueRankingsJSONObject = gameMode;
+                } else if (gameMode.getString("GameMode").equals("UnrankedDraft")) {
+                    unrankedDraftRankingsJSONObject = gameMode;
+                }
+            }
 
             String name = userJSONObject.getString("Name");
-            String quickMatchRanking = quickMatchRankingsJSONObject.get("CurrentMMR").toString();
-            String heroLeagueRanking = heroLeagueRankingsJSONObject.get("CurrentMMR").toString();
-            String teamLeagueRanking = teamLeagueRankingsJSONObject.get("CurrentMMR").toString();
-            String unrankedDraftRanking = unrankedDraftRankingsJSONObject.get("CurrentMMR").toString();
+            String quickMatchRanking = (quickMatchRankingsJSONObject == null) ? "Not Available" : quickMatchRankingsJSONObject.get("CurrentMMR").toString();
+            String heroLeagueRanking = (heroLeagueRankingsJSONObject == null) ? "Not Available" : heroLeagueRankingsJSONObject.get("CurrentMMR").toString();
+            String teamLeagueRanking = (teamLeagueRankingsJSONObject == null) ? "Not Available" : teamLeagueRankingsJSONObject.get("CurrentMMR").toString();
+            String unrankedDraftRanking = (unrankedDraftRankingsJSONObject == null) ? "Not Available" : unrankedDraftRankingsJSONObject.get("CurrentMMR").toString();
 
             newUser.setName(name);
             newUser.setQuickMatchMMR(quickMatchRanking);
