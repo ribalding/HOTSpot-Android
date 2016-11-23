@@ -24,7 +24,8 @@
     <string name="hero_8">Hero 8</string>
     <string name="hero_9">Hero 9</string>
     <string name="hero_10">Hero 10</string>
-    <string name="hero_restrictive">Hero Restrictive</string>
+    <string name="hero_restrictive">Team-Wide Hero Restrictive</string>
+    <string name="global_restrictive">Game-Wide Hero Restrictive</string>
     <string name="hero_league_colon">Hero League: %1$s</string>
     <string name="unranked_draft_colon">Unranked Draft: %1$s</string>
     <string name="team_league_colon">Team League: %1$s</string>

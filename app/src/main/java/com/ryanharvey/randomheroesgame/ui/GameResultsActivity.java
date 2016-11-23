@@ -65,6 +65,7 @@ public class GameResultsActivity extends AppCompatActivity {
     private ArrayList<String> teamBChoices = new ArrayList<>();
     private SharedPreferences sharedPreferences;
     private boolean teamRestrictionIsOn;
+    private boolean globalRestrictionIsOn;
     private ProgressDialog dialog;
 
     @Override
@@ -74,6 +75,7 @@ public class GameResultsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         teamRestrictionIsOn = sharedPreferences.getBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE, true);
+        globalRestrictionIsOn = sharedPreferences.getBoolean(Constants.PREFERENCES_GLOBAL_RESTRICTIVE, false);
 
         dialog = ProgressDialog.show(this, "Generating Team", "",true);
 
@@ -97,8 +99,14 @@ public class GameResultsActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 allHeroes.setAllHeroes(gs.processHeroes(response));
 
-                    teamA = gs.generateTeam(allHeroes, generateSelectedHeroes(teamAChoices), teamRestrictionIsOn);
-                    teamB = gs.generateTeam(allHeroes, generateSelectedHeroes(teamBChoices), teamRestrictionIsOn);
+                teamA = gs.generateTeam(allHeroes, generateSelectedHeroes(teamAChoices), "teamA", teamRestrictionIsOn);
+                teamB = gs.generateTeam(allHeroes, generateSelectedHeroes(teamBChoices), "teamB", teamRestrictionIsOn);
+
+                if (globalRestrictionIsOn) {
+                    gs.globalRestrict(allHeroes, teamA, teamB);
+                }
+
+
 
                 GameResultsActivity.this.runOnUiThread(new Runnable() {
                     @Override

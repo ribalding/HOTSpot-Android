@@ -119,6 +119,17 @@
             android:textStyle="bold"
             android:layout_marginBottom="20dp" />
 
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/global_restrictive"
+            android:id="@+id/globalRestrictiveSwitch"
+            android:textColor="#eaeaea"
+            android:layout_above="@id/teamRestrictiveSwitch"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:layout_marginBottom="0dp"/>
+
     </RelativeLayout>
 
     <TextView
