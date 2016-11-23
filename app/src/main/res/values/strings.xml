@@ -2,7 +2,7 @@
 
     <string name="app_name">HOTShit</string>
     <string name="find_my_mmr_button_text">Find My MMR</string>
-    <string name="generate_game_button_text">Generate Game</string>
+    <string name="generate_game_button_text">Game Generator</string>
     <string name="user_name">User Name</string>
     <string name="quick_match">Quick Match</string>
     <string name="unranked_draft">Unranked Draft</string>
@@ -30,5 +30,8 @@
     <string name="team_league_colon">Team League: %1$s</string>
     <string name="quick_match_colon">Quick Match: %1$s</string>
     <string name="please_wait">Please Wait</string>
+    <string name="description_1">Use this to generate a random or semi-random game of Heroes of the Storm.</string>
+    <string name="description_2">Customize your heroes and map using the dropdowns or leave some/all to chance.</string>
+    <string name="description_3">The Hero Restrictive Switch will prevent more than one of the same hero on a team.</string>
 
 </resources>

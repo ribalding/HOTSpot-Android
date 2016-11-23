@@ -3,6 +3,7 @@ package com.ryanharvey.randomheroesgame.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,6 +46,9 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     @BindView(R.id.mapSelectSpinner) Spinner mapSelectSpinner;
     @BindView(R.id.submitButton) Button submitButton;
     @BindView(R.id.teamRestrictiveSwitch) Switch teamRestrictiveSwitch;
+    @BindView(R.id.teamATextView) TextView teamATextView;
+    @BindView(R.id.teamBTextView) TextView teamBTextView;
+    @BindView(R.id.mapTextView) TextView mapTextView;
 
     private GameService gs = new GameService();
     private AllHeroes allHeroes = new AllHeroes();
@@ -74,6 +79,12 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
         submitButton.setOnClickListener(this);
+
+        Typeface fortySecondStreetFont = Typeface.createFromAsset(getAssets(), "fonts/FORTSSH_.ttf");
+        teamATextView.setTypeface(fortySecondStreetFont);
+        teamBTextView.setTypeface(fortySecondStreetFont);
+        mapTextView.setTypeface(fortySecondStreetFont);
+
         dialog = ProgressDialog.show(this, getString(R.string.please_wait), "", true);
 
         heroSpinner1.setOnItemSelectedListener(listener);

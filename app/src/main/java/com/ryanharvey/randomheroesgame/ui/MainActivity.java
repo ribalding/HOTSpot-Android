@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if (view == generateButton){
-            Intent intent = new Intent(MainActivity.this, GameOptionsActivity.class);
+            Intent intent = new Intent(MainActivity.this, GameDescriptionActivity.class);
             startActivity(intent);
         } else if (view == findMyMMRButton){
             Intent intent = new Intent (MainActivity.this, MMRInputActivity.class);

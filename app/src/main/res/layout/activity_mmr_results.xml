@@ -25,7 +25,7 @@
         android:layout_alignParentEnd="true"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="50dp" />
 
     <TextView
         android:text="@string/unranked_draft"
