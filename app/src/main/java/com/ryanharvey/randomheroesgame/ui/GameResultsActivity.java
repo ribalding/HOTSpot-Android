@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.ryanharvey.randomheroesgame.Models.AllHeroes;
 
 import com.ryanharvey.randomheroesgame.Constants.Constants;
+import com.ryanharvey.randomheroesgame.Models.GameRoster;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -68,7 +69,7 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
     private ArrayList<Hero> teamB;
     private GameMap selectedMap;
     private GameService gs = new GameService();
-    private ArrayList<Hero> gameRoster = new ArrayList<>();
+    private GameRoster gameRoster;
     private ArrayList<View> viewsList = new ArrayList<>();
     private ArrayList<String> teamAChoices = new ArrayList<>();
     private ArrayList<String> teamBChoices = new ArrayList<>();
@@ -136,12 +137,14 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
                     gs.globalRestrict(allHeroes, teamA, teamB);
                 }
 
-                for (Hero hero : teamA) {
-                    gameRoster.add(hero);
-                }
-                for (Hero hero : teamB) {
-                    gameRoster.add(hero);
-                }
+                gameRoster = new GameRoster(teamA, teamB);
+
+//                for (Hero hero : teamA) {
+//                    gameRoster.add(hero);
+//                }
+//                for (Hero hero : teamB) {
+//                    gameRoster.add(hero);
+//                }
 
                 GameResultsActivity.this.runOnUiThread(new Runnable() {
                     @Override
@@ -232,7 +235,7 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         if (viewsList.contains(view)) {
-            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(gameRoster.get(viewsList.indexOf(view)).getHotsLogsURI() ));
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(gameRoster.getRoster().get(viewsList.indexOf(view)).getHotsLogsURI()));
             startActivity(i);
         }
     }

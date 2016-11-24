@@ -42,5 +42,7 @@
     <string name="back_button">Back</string>
     <string name="decima_font_path">fonts/Decima-Nova-W01-Bold.ttf</string>
     <string name="forty_second_street_font_path">fonts/FORTSSH_.ttf</string>
-    <string name="generating_game"></string>
+    <string name="generating_game">Generating Game</string>
+    <string name="continue_button">Continue Button</string>
+    <string name="game_generator">Game Generator</string>
 </resources>

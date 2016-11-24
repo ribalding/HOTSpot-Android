@@ -12,12 +12,12 @@
     android:background="@drawable/backgroud">
 
     <TextView
-        android:text="Game Generator"
+        android:text="@string/game_generator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:id="@+id/gameGeneratorTitleTextView"
-        android:textColor="@color/offWhite"
+        android:textColor="@color/bone"
         android:textSize="24sp"
         android:layout_marginTop="70dp"
         android:layout_alignParentRight="true"
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/gameDescription1TextView"
-        android:textColor="@color/offWhite"
+        android:textColor="@color/bone"
         android:textSize="14sp"
         android:layout_marginTop="45dp"
         android:layout_below="@+id/gameGeneratorTitleTextView"
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/gameDescription2TextView"
-        android:textColor="@color/offWhite"
+        android:textColor="@color/bone"
         android:textSize="14sp"
         android:textAlignment="center"
         android:layout_below="@+id/gameDescription1TextView"
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/gameDescription3TextView"
-        android:textColor="@color/offWhite"
+        android:textColor="@color/bone"
         android:textSize="14sp"
         android:textAlignment="center"
         android:layout_below="@+id/gameDescription2TextView"
@@ -74,7 +74,7 @@
         android:layout_marginTop="20dp" />
 
     <Button
-        android:text="Continue"
+        android:text="@string/continue_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/gameDescriptionContinueButton"
@@ -91,7 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/gameDescription5TextView"
-        android:textColor="@color/offWhite"
+        android:textColor="@color/bone"
         android:textSize="14sp"
         android:textAlignment="center"
         android:layout_marginTop="20dp"
@@ -106,7 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/gameDescription4TextView"
-        android:textColor="@color/offWhite"
+        android:textColor="@color/bone"
         android:textSize="14sp"
         android:textAlignment="center"
         android:layout_marginTop="44dp"
