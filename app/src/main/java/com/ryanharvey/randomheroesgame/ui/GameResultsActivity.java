@@ -92,7 +92,7 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
         teamAResultsTextView.setTypeface(font);
         teamBResultsTextView.setTypeface(font);
 
-        dialog = ProgressDialog.show(this, "Generating Game", "",true);
+        dialog = ProgressDialog.show(this, getString(R.string.generating_game), "",true);
 
         hero1Image.setOnClickListener(this);
         hero2Image.setOnClickListener(this);
@@ -130,21 +130,14 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
             public void onResponse(Call call, Response response) throws IOException {
                 allHeroes.setAllHeroes(gs.processHeroes(response));
 
-                teamA = gs.generateTeam(allHeroes, generateSelectedHeroes(teamAChoices), "teamA", teamRestrictionIsOn);
-                teamB = gs.generateTeam(allHeroes, generateSelectedHeroes(teamBChoices), "teamB", teamRestrictionIsOn);
+                teamA = gs.generateTeam(allHeroes, generateSelectedHeroes(teamAChoices), teamRestrictionIsOn);
+                teamB = gs.generateTeam(allHeroes, generateSelectedHeroes(teamBChoices), teamRestrictionIsOn);
 
                 if (globalRestrictionIsOn) {
                     gs.globalRestrict(allHeroes, teamA, teamB);
                 }
 
                 gameRoster = new GameRoster(teamA, teamB);
-
-//                for (Hero hero : teamA) {
-//                    gameRoster.add(hero);
-//                }
-//                for (Hero hero : teamB) {
-//                    gameRoster.add(hero);
-//                }
 
                 GameResultsActivity.this.runOnUiThread(new Runnable() {
                     @Override

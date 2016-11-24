@@ -86,7 +86,7 @@ public class GameService {
     }
 
     //Generate team based on user selections
-    public ArrayList<Hero> generateTeam(AllHeroes allHeroes, ArrayList<Hero> selectedHeroes, String teamName, boolean teamRestrictive){
+    public ArrayList<Hero> generateTeam(AllHeroes allHeroes, ArrayList<Hero> selectedHeroes, boolean teamRestrictive){
 
         ArrayList<Hero> team = new ArrayList<>();
         for(Hero hero : selectedHeroes){
@@ -159,7 +159,7 @@ public class GameService {
         return newMap;
     }
 
-    //Not Completed
+
     public Hero getWeightedHero(AllHeroes allHeroes, ArrayList<Hero> team) {
         Integer warrior = 0;
         Integer assassin = 0;
