@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ryanharvey.randomheroesgame.ui.GameOptionsActivity"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/backgroud"
     android:paddingTop="10dp"
     android:paddingBottom="10dp">
 

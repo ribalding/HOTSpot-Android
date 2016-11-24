@@ -9,18 +9,24 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ryanharvey.randomheroesgame.ui.GameDescriptionActivity"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/backgroud">
 
     <TextView
         android:text="Game Generator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:id="@+id/gameGeneratorTitleTextView"
         android:textColor="@color/offWhite"
         android:textSize="24sp"
-        android:layout_marginTop="70dp" />
+        android:layout_marginTop="70dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textAlignment="center"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp" />
 
     <TextView
         android:text="@string/description_1"
@@ -71,13 +77,42 @@
         android:text="Continue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/gameDescription3TextView"
         android:id="@+id/gameDescriptionContinueButton"
-        android:layout_marginTop="30dp"
+        android:background="@color/colorAccent"
+        android:textColor="@color/bone"
+        android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/gameDescription3TextView"
         android:layout_alignEnd="@+id/gameDescription3TextView"
         android:layout_alignLeft="@+id/gameDescription3TextView"
+        android:layout_alignStart="@+id/gameDescription3TextView" />
+
+    <TextView
+        android:text="@string/description_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gameDescription5TextView"
+        android:textColor="@color/offWhite"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/gameDescription4TextView"
+        android:layout_alignRight="@+id/gameDescription4TextView"
+        android:layout_alignEnd="@+id/gameDescription4TextView"
+        android:layout_alignLeft="@+id/gameDescription4TextView"
+        android:layout_alignStart="@+id/gameDescription4TextView" />
+
+    <TextView
+        android:text="@string/description_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gameDescription4TextView"
+        android:textColor="@color/offWhite"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/gameDescription3TextView"
+        android:layout_alignLeft="@+id/gameDescription3TextView"
         android:layout_alignStart="@+id/gameDescription3TextView"
-        android:background="@color/colorAccent"
-        android:textColor="@color/bone" />
+        android:layout_alignRight="@+id/gameDescription3TextView"
+        android:layout_alignEnd="@+id/gameDescription3TextView" />
 </RelativeLayout>

@@ -6,6 +6,8 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,13 +23,14 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class MMRResultsActivity extends AppCompatActivity {
+public class MMRResultsActivity extends AppCompatActivity implements View.OnClickListener{
 
     @BindView(R.id.userNameTextView) TextView userNameTextView;
     @BindView(R.id.teamLeagueTextView) TextView teamLeagueTextView;
     @BindView(R.id.quickMatchTextView) TextView quickMatchTextView;
     @BindView(R.id.unrankedDraftTextView) TextView unrankedDraftTextView;
     @BindView(R.id.heroLeagueTextView) TextView heroLeagueTextView;
+    @BindView(R.id.mmrResultsBackButton) Button mmrResultsBackButton;
 
     private MMRService mmrs = new MMRService();
     private ProgressDialog dialog;
@@ -41,7 +44,9 @@ public class MMRResultsActivity extends AppCompatActivity {
         String name = getIntent().getStringExtra("nameInput");
         String number = getIntent().getStringExtra("numberInput");
 
-        Typeface fortySecondStreetFont = Typeface.createFromAsset(getAssets(), "fonts/FORTSSH_.ttf");
+        mmrResultsBackButton.setOnClickListener(this);
+
+        Typeface fortySecondStreetFont = Typeface.createFromAsset(getAssets(), getString(R.string.font_path));
         userNameTextView.setTypeface(fortySecondStreetFont);
 
         dialog = ProgressDialog.show(this, getString(R.string.please_wait), "", true);
@@ -68,7 +73,7 @@ public class MMRResultsActivity extends AppCompatActivity {
                             unrankedDraftTextView.setText(getString(R.string.unranked_draft_colon, user.getUnrankedDraftMMR()));
                             dialog.dismiss();
                         } else {
-                            Toast.makeText(getApplicationContext(), "User Not Found, Please Try Again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), getString(R.string.user_not_found), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MMRResultsActivity.this, MMRInputActivity.class);
                             startActivity(intent);
                         }
@@ -76,5 +81,12 @@ public class MMRResultsActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == mmrResultsBackButton){
+            onBackPressed();
+        }
     }
 }

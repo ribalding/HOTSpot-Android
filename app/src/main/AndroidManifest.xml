@@ -10,18 +10,24 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MMRInputActivity" />
-        <activity android:name=".ui.MMRResultsActivity" />
-        <activity android:name=".ui.GameOptionsActivity" />
-        <activity android:name=".ui.GameResultsActivity" />
-        <activity android:name=".ui.GameDescriptionActivity"></activity>
+        <activity android:name=".ui.MMRInputActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.MMRResultsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.GameOptionsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.GameResultsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.GameDescriptionActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

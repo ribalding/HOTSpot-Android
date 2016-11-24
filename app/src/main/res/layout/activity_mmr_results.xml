@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ryanharvey.randomheroesgame.ui.MMRResultsActivity"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/backgroud">
 
     <TextView
         android:text="@string/user_name"
@@ -25,7 +25,20 @@
         android:layout_alignParentEnd="true"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="90dp" />
+
+    <Button
+        android:text="@string/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mmrResultsBackButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/colorAccent"
+        android:textColor="#eaeaea" />
 
     <TextView
         android:text="@string/unranked_draft"
