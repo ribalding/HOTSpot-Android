@@ -26,8 +26,8 @@ public class GameDescriptionActivity extends AppCompatActivity implements View.O
 
         gameDescriptionContinueButton.setOnClickListener(this);
 
-        Typeface fortySecondStreetFont = Typeface.createFromAsset(getAssets(), "fonts/FORTSSH_.ttf");
-        gameGeneratorTitleTextView.setTypeface(fortySecondStreetFont);
+        Typeface descriptionLogoFont = Typeface.createFromAsset(getAssets(), getString(R.string.decima_font_path));
+        gameGeneratorTitleTextView.setTypeface(descriptionLogoFont);
     }
 
     @Override

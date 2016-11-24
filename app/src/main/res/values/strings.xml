@@ -1,6 +1,7 @@
 <resources>
 
     <string name="app_name">HOTSpot</string>
+    <string name="app_subtitle">Heroes Of The Storm Companion App</string>
     <string name="find_my_mmr_button_text">Find My MMR</string>
     <string name="generate_game_button_text">Game Generator</string>
     <string name="user_name">User Name</string>
@@ -37,7 +38,9 @@
     <string name="description_4">The Global Restrictive Switch will prevent the same hero appearing on both teams.</string>
     <string name="description_5">Tap on hero portraits to find out more information.</string>
     <string name="not_available">Not Available</string>
-    <string name="font_path">fonts/FORTSSH_.ttf</string>
     <string name="user_not_found">User Not Found, Please Try Again</string>
     <string name="back_button">Back</string>
+    <string name="decima_font_path">fonts/Decima-Nova-W01-Bold.ttf</string>
+    <string name="forty_second_street_font_path">fonts/FORTSSH_.ttf</string>
+    <string name="generating_game"></string>
 </resources>

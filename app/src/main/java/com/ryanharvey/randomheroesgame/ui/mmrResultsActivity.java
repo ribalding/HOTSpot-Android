@@ -46,8 +46,8 @@ public class MMRResultsActivity extends AppCompatActivity implements View.OnClic
 
         mmrResultsBackButton.setOnClickListener(this);
 
-        Typeface fortySecondStreetFont = Typeface.createFromAsset(getAssets(), getString(R.string.font_path));
-        userNameTextView.setTypeface(fortySecondStreetFont);
+        Typeface font = Typeface.createFromAsset(getAssets(), getString(R.string.decima_font_path));
+        userNameTextView.setTypeface(font);
 
         dialog = ProgressDialog.show(this, getString(R.string.please_wait), "", true);
 

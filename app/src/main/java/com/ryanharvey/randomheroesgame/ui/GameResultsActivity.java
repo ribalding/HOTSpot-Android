@@ -3,6 +3,7 @@ package com.ryanharvey.randomheroesgame.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -58,6 +59,9 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
     @BindView(R.id.mapResultTextView) TextView mapResultTextView;
     @BindView(R.id.mapImageView) ImageView mapImageView;
 
+    @BindView(R.id.teamAResultsTextView) TextView teamAResultsTextView;
+    @BindView(R.id.teamBResultsTextView) TextView teamBResultsTextView;
+
     private AllHeroes allHeroes = new AllHeroes();
     private ArrayList<GameMap> allMaps;
     private ArrayList<Hero> teamA;
@@ -82,7 +86,12 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
         teamRestrictionIsOn = sharedPreferences.getBoolean(Constants.PREFERENCES_TEAM_RESTRICTIVE, true);
         globalRestrictionIsOn = sharedPreferences.getBoolean(Constants.PREFERENCES_GLOBAL_RESTRICTIVE, false);
 
-        dialog = ProgressDialog.show(this, "Generating Team", "",true);
+        Typeface font = Typeface.createFromAsset(getAssets(), getString(R.string.decima_font_path));
+        mapResultTextView.setTypeface(font);
+        teamAResultsTextView.setTypeface(font);
+        teamBResultsTextView.setTypeface(font);
+
+        dialog = ProgressDialog.show(this, "Generating Game", "",true);
 
         hero1Image.setOnClickListener(this);
         hero2Image.setOnClickListener(this);
@@ -156,7 +165,7 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
             public void onResponse(Call call, Response response) throws IOException {
                 String mapName = sharedPreferences.getString("mapSpinnerChoice", Constants.NONE);
                 allMaps = gs.processMaps(response);
-                if(!mapName.equalsIgnoreCase("None")){
+                if(!mapName.equalsIgnoreCase(Constants.NONE)){
                     selectedMap = gs.getMapByName(mapName, allMaps);
                 } else {
                     selectedMap = gs.generateRandomMap(allMaps);
@@ -213,7 +222,7 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
     public ArrayList<Hero> generateSelectedHeroes(ArrayList<String> choices){
         ArrayList<Hero> selectedHeroes = new ArrayList<>();
         for (String choice : choices){
-            if(!choice.equalsIgnoreCase("None")){
+            if(!choice.equalsIgnoreCase(Constants.NONE)){
                 selectedHeroes.add(gs.getHeroByName(choice, allHeroes.getAllHeroes()));
             }
         }

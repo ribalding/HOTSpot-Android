@@ -35,7 +35,7 @@
         android:id="@+id/gameDescription1TextView"
         android:textColor="@color/offWhite"
         android:textSize="14sp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="45dp"
         android:layout_below="@+id/gameGeneratorTitleTextView"
         android:textAlignment="center"
         android:layout_alignLeft="@+id/gameGeneratorTitleTextView"

@@ -33,8 +33,8 @@ public class MMRInputActivity extends AppCompatActivity implements View.OnClickL
         mmrSubmitButton.setOnClickListener(this);
         mmrInfoLink.setOnClickListener(this);
 
-        Typeface fortySecondStreetFont = Typeface.createFromAsset(getAssets(), getString(R.string.font_path));
-        findMyMMRTextView.setTypeface(fortySecondStreetFont);
+        Typeface font = Typeface.createFromAsset(getAssets(), getString(R.string.decima_font_path));
+        findMyMMRTextView.setTypeface(font);
 
     }
 

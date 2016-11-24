@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:textSize="50dp"
+        android:textSize="70sp"
         android:id="@+id/titleTextView"
         android:textColor="#eaeaea"
         android:layout_alignParentTop="true"
@@ -50,7 +50,7 @@
         android:layout_marginTop="140dp" />
 
     <TextView
-        android:text="Heroes Of The Storm Companion App"
+        android:text="@string/app_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titleTextView"

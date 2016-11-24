@@ -81,10 +81,10 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
         editor = sharedPreferences.edit();
         submitButton.setOnClickListener(this);
 
-        Typeface fortySecondStreetFont = Typeface.createFromAsset(getAssets(), "fonts/FORTSSH_.ttf");
-        teamATextView.setTypeface(fortySecondStreetFont);
-        teamBTextView.setTypeface(fortySecondStreetFont);
-        mapTextView.setTypeface(fortySecondStreetFont);
+        Typeface font = Typeface.createFromAsset(getAssets(), getString(R.string.decima_font_path));
+        teamATextView.setTypeface(font);
+        teamBTextView.setTypeface(font);
+        mapTextView.setTypeface(font);
 
         dialog = ProgressDialog.show(this, getString(R.string.please_wait), "", true);
 

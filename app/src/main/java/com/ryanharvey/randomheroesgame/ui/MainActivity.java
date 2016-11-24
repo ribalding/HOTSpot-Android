@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        Typeface fortySecondStreetFont = Typeface.createFromAsset(getAssets(), "fonts/FORTSSH_.ttf");
-        titleTextView.setTypeface(fortySecondStreetFont);
+        Typeface logoFont = Typeface.createFromAsset(getAssets(), getString(R.string.decima_font_path));
+        titleTextView.setTypeface(logoFont);
 
         generateButton.setOnClickListener(this);
         findMyMMRButton.setOnClickListener(this);
