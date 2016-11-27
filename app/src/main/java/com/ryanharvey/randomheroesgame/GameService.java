@@ -85,39 +85,6 @@ public class GameService {
         return maps;
     }
 
-    //Generate team based on user selections
-    public ArrayList<Hero> generateTeam(AllHeroes allHeroes, ArrayList<Hero> selectedHeroes, boolean teamRestrictive){
-
-        ArrayList<Hero> team = new ArrayList<>();
-        for(Hero hero : selectedHeroes){
-            team.add(hero);
-        }
-        for(int i = 0; i < 5 - selectedHeroes.size(); i++){
-            Hero selectedHero = this.getWeightedHero(allHeroes, team);
-            if (teamRestrictive) {
-                while (team.contains(selectedHero)) {
-                    selectedHero = this.getWeightedHero(allHeroes, team);
-                }
-            }
-            team.add(selectedHero);
-        }
-        return team;
-    }
-
-    public void globalRestrict(AllHeroes allHeroes, ArrayList<Hero> teamA, ArrayList<Hero> teamB) {
-        if (!Collections.disjoint(teamA, teamB)) {
-            int coinFlip = MathService.generateRandomNumber(2);
-            if (coinFlip == 0) {
-                replaceMatchingHeroes(allHeroes, teamA, teamB);
-            } else {
-                replaceMatchingHeroes(allHeroes, teamB, teamA);
-            }
-        }
-    }
-
-
-
-
 
     //Get All Map Names
     public ArrayList<String> getAllMapNames(ArrayList<GameMap> maps){
@@ -127,69 +94,6 @@ public class GameService {
             mapNames.add(map.getPrimaryName());
         }
         return mapNames;
-    }
-
-    //Get Hero By Name
-    public Hero getHeroByName(String name, ArrayList<Hero> allHeroes){
-        Hero newHero = new Hero();
-        for(Hero hero: allHeroes){
-            if(hero.getPrimaryName().equalsIgnoreCase(name)){
-                newHero = hero;
-            }
-        }
-        return newHero;
-    }
-
-
-    public Hero getWeightedHero(AllHeroes allHeroes, ArrayList<Hero> team) {
-        Integer warrior = 0;
-        Integer assassin = 0;
-        Integer spec = 0;
-        Integer support = 0;
-
-        for (Hero hero : team) {
-            if (hero.getGroup().equalsIgnoreCase("Warrior")) {
-                warrior++;
-            } else if (hero.getGroup().equalsIgnoreCase("Assassin")) {
-                assassin++;
-            } else if (hero.getGroup().equalsIgnoreCase("Specialist")) {
-                spec++;
-            } else if (hero.getGroup().equalsIgnoreCase("Support")) {
-                support++;
-            }
-        }
-
-        ArrayList<Integer> nums = new ArrayList<Integer>(Arrays.asList(warrior, assassin, spec, support));
-        ArrayList<String> heroFilters = new ArrayList<>();
-
-        for(int i = 0; i < 4; i++) {
-            if (i == 0 && nums.get(i) > 1) {
-                heroFilters.add("Warrior");
-            } else if (i== 1 && assassin > 1) {
-                heroFilters.add("Assassin");
-            } else if (i == 2 && spec > 0) {
-                heroFilters.add("Specialist");
-            } else if (i == 3 && support > 1) {
-                heroFilters.add("Support");
-            }
-        }
-
-        ArrayList<Hero> filteredHeroes = allHeroes.getFilteredHeroes(heroFilters);
-        if(filteredHeroes.size() > 0) {
-            return filteredHeroes.get(MathService.generateRandomNumber(filteredHeroes.size() - 1));
-        } else {
-            return allHeroes.getAllHeroes().get(MathService.generateRandomNumber(allHeroes.getAllHeroes().size() - 1));
-        }
-    }
-
-    public ArrayList<Hero> replaceMatchingHeroes (AllHeroes allHeroes, ArrayList<Hero> team, ArrayList<Hero> otherTeam) {
-        team.removeAll(otherTeam);
-        while (team.size() < 5) {
-            Hero newHero = this.getWeightedHero(allHeroes, team);
-            team.add(newHero);
-            team.removeAll(otherTeam);
-        }
-        return team;
     }
 }
 

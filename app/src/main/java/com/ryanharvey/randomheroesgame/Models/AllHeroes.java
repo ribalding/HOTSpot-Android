@@ -1,6 +1,10 @@
 package com.ryanharvey.randomheroesgame.Models;
 
+import com.ryanharvey.randomheroesgame.MathService;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -75,7 +79,7 @@ public class AllHeroes {
         return heroNames;
     }
 
-
+    //Get Filtered Heroes
     public ArrayList<Hero> getFilteredHeroes(ArrayList<String> filters){
 
         ArrayList<Hero> filteredHeroes = new ArrayList<>();
@@ -91,5 +95,97 @@ public class AllHeroes {
             }
         }
         return filteredHeroes;
+    }
+
+    //Get Hero By Name
+    public Hero getHeroByName(String name){
+        Hero newHero = new Hero();
+        for(Hero hero: this.allHeroesArrayList){
+            if(hero.getPrimaryName().equalsIgnoreCase(name)){
+                newHero = hero;
+            }
+        }
+        return newHero;
+    }
+
+    //Generate team based on user selections
+    public ArrayList<Hero> generateTeam(ArrayList<Hero> selectedHeroes, boolean teamRestrictive){
+
+        ArrayList<Hero> team = new ArrayList<>();
+        for(Hero hero : selectedHeroes){
+            team.add(hero);
+        }
+        for(int i = 0; i < 5 - selectedHeroes.size(); i++){
+            Hero selectedHero = this.getWeightedHero(team);
+            if (teamRestrictive) {
+                while (team.contains(selectedHero)) {
+                    selectedHero = this.getWeightedHero(team);
+                }
+            }
+            team.add(selectedHero);
+        }
+        return team;
+    }
+
+    public Hero getWeightedHero(ArrayList<Hero> team) {
+        Integer warrior = 0;
+        Integer assassin = 0;
+        Integer spec = 0;
+        Integer support = 0;
+
+        for (Hero hero : team) {
+            if (hero.getGroup().equalsIgnoreCase("Warrior")) {
+                warrior++;
+            } else if (hero.getGroup().equalsIgnoreCase("Assassin")) {
+                assassin++;
+            } else if (hero.getGroup().equalsIgnoreCase("Specialist")) {
+                spec++;
+            } else if (hero.getGroup().equalsIgnoreCase("Support")) {
+                support++;
+            }
+        }
+
+        ArrayList<Integer> nums = new ArrayList<Integer>(Arrays.asList(warrior, assassin, spec, support));
+        ArrayList<String> heroFilters = new ArrayList<>();
+
+        for(int i = 0; i < 4; i++) {
+            if (i == 0 && nums.get(i) > 1) {
+                heroFilters.add("Warrior");
+            } else if (i== 1 && assassin > 1) {
+                heroFilters.add("Assassin");
+            } else if (i == 2 && spec > 0) {
+                heroFilters.add("Specialist");
+            } else if (i == 3 && support > 1) {
+                heroFilters.add("Support");
+            }
+        }
+
+        ArrayList<Hero> filteredHeroes = this.getFilteredHeroes(heroFilters);
+        if(filteredHeroes.size() > 0) {
+            return filteredHeroes.get(MathService.generateRandomNumber(filteredHeroes.size() - 1));
+        } else {
+            return this.getAllHeroes().get(MathService.generateRandomNumber(this.getAllHeroes().size() - 1));
+        }
+    }
+
+    public ArrayList<Hero> replaceMatchingHeroes (ArrayList<Hero> team, ArrayList<Hero> otherTeam) {
+        team.removeAll(otherTeam);
+        while (team.size() < 5) {
+            Hero newHero = this.getWeightedHero(team);
+            team.add(newHero);
+            team.removeAll(otherTeam);
+        }
+        return team;
+    }
+
+    public void globalRestrict(ArrayList<Hero> teamA, ArrayList<Hero> teamB) {
+        if (!Collections.disjoint(teamA, teamB)) {
+            int coinFlip = MathService.generateRandomNumber(2);
+            if (coinFlip == 0) {
+                replaceMatchingHeroes(teamA, teamB);
+            } else {
+                replaceMatchingHeroes(teamB, teamA);
+            }
+        }
     }
 }
