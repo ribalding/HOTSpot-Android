@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.ryanharvey.randomheroesgame.Models.AllGameMaps;
 import com.ryanharvey.randomheroesgame.Models.AllHeroes;
 
 import com.ryanharvey.randomheroesgame.Constants.Constants;
@@ -64,7 +65,7 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
     @BindView(R.id.teamBResultsTextView) TextView teamBResultsTextView;
 
     private AllHeroes allHeroes = new AllHeroes();
-    private ArrayList<GameMap> allMaps;
+    private AllGameMaps allMaps;
     private ArrayList<Hero> teamA;
     private ArrayList<Hero> teamB;
     private GameMap selectedMap;
@@ -160,11 +161,11 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String mapName = sharedPreferences.getString("mapSpinnerChoice", Constants.NONE);
-                allMaps = gs.processMaps(response);
+                allMaps = new AllGameMaps(gs.processMaps(response));
                 if(!mapName.equalsIgnoreCase(Constants.NONE)){
-                    selectedMap = gs.getMapByName(mapName, allMaps);
+                    selectedMap = allMaps.getMapByName(mapName);
                 } else {
-                    selectedMap = gs.generateRandomMap(allMaps);
+                    selectedMap = allMaps.generateRandomMap();
                 }
                 GameResultsActivity.this.runOnUiThread(new Runnable() {
                     @Override

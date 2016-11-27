@@ -106,26 +106,18 @@ public class GameService {
 
     public void globalRestrict(AllHeroes allHeroes, ArrayList<Hero> teamA, ArrayList<Hero> teamB) {
         if (!Collections.disjoint(teamA, teamB)) {
-            int coinFlip = generateRandomNumber(2);
+            int coinFlip = MathService.generateRandomNumber(2);
             if (coinFlip == 0) {
-                this.replaceMatchingHeroes(allHeroes, teamA, teamB);
+                replaceMatchingHeroes(allHeroes, teamA, teamB);
             } else {
-                this.replaceMatchingHeroes(allHeroes, teamB, teamA);
+                replaceMatchingHeroes(allHeroes, teamB, teamA);
             }
         }
     }
 
-    //Generate Random Map
-    public GameMap generateRandomMap(ArrayList<GameMap> allMaps){
-        int randomNumber = this.generateRandomNumber(allMaps.size());
-        return allMaps.get(randomNumber);
-    }
 
-    //Generate Random Number Between 0 and a provided int
-    public int generateRandomNumber(int max){
-        Random rand = new Random();
-        return rand.nextInt(max);
-    }
+
+
 
     //Get All Map Names
     public ArrayList<String> getAllMapNames(ArrayList<GameMap> maps){
@@ -146,17 +138,6 @@ public class GameService {
             }
         }
         return newHero;
-    }
-
-    //Get Map By Name
-    public GameMap getMapByName(String name, ArrayList<GameMap> allMaps){
-        GameMap newMap = new GameMap();
-        for (GameMap map : allMaps){
-            if(map.getPrimaryName().equalsIgnoreCase(name)){
-                newMap = map;
-            }
-        }
-        return newMap;
     }
 
 
@@ -195,9 +176,9 @@ public class GameService {
 
         ArrayList<Hero> filteredHeroes = allHeroes.getFilteredHeroes(heroFilters);
         if(filteredHeroes.size() > 0) {
-            return filteredHeroes.get(generateRandomNumber(filteredHeroes.size() - 1));
+            return filteredHeroes.get(MathService.generateRandomNumber(filteredHeroes.size() - 1));
         } else {
-            return allHeroes.getAllHeroes().get(generateRandomNumber(allHeroes.getAllHeroes().size() - 1));
+            return allHeroes.getAllHeroes().get(MathService.generateRandomNumber(allHeroes.getAllHeroes().size() - 1));
         }
     }
 
