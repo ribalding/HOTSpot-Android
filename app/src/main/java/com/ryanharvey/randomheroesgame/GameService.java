@@ -84,16 +84,5 @@ public class GameService {
         }
         return maps;
     }
-
-
-    //Get All Map Names
-    public ArrayList<String> getAllMapNames(ArrayList<GameMap> maps){
-        ArrayList<String> mapNames = new ArrayList<>();
-        mapNames.add("None");
-        for(GameMap map : maps){
-            mapNames.add(map.getPrimaryName());
-        }
-        return mapNames;
-    }
 }
 

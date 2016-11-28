@@ -1,5 +1,6 @@
 package com.ryanharvey.randomheroesgame.Models;
 
+import com.ryanharvey.randomheroesgame.Constants.Constants;
 import com.ryanharvey.randomheroesgame.MathService;
 
 import java.util.ArrayList;
@@ -109,12 +110,12 @@ public class AllHeroes {
     }
 
     //Generate team based on user selections
-    public ArrayList<Hero> generateTeam(ArrayList<Hero> selectedHeroes, boolean teamRestrictive){
+    public ArrayList<Hero> generateTeam(ArrayList<String> selectedHeroNames, boolean teamRestrictive){
 
+        ArrayList<Hero> selectedHeroes = this.generateSelectedHeroes(selectedHeroNames);
         ArrayList<Hero> team = new ArrayList<>();
-        for(Hero hero : selectedHeroes){
-            team.add(hero);
-        }
+        team.addAll(selectedHeroes);
+
         for(int i = 0; i < 5 - selectedHeroes.size(); i++){
             Hero selectedHero = this.getWeightedHero(team);
             if (teamRestrictive) {
@@ -187,5 +188,15 @@ public class AllHeroes {
                 replaceMatchingHeroes(teamB, teamA);
             }
         }
+    }
+
+    public ArrayList<Hero> generateSelectedHeroes(ArrayList<String> choices){
+        ArrayList<Hero> selectedHeroes = new ArrayList<>();
+        for (String choice : choices){
+            if(!choice.equalsIgnoreCase(Constants.NONE)){
+                selectedHeroes.add(this.getHeroByName(choice));
+            }
+        }
+        return selectedHeroes;
     }
 }

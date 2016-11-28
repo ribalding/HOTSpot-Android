@@ -41,4 +41,14 @@ public class AllGameMaps {
         return allMaps.get(randomNumber);
     }
 
+    //Get All Map Names
+    public ArrayList<String> getAllMapNames(){
+        ArrayList<String> mapNames = new ArrayList<>();
+        mapNames.add("None");
+        for(GameMap map : this.allMaps){
+            mapNames.add(map.getPrimaryName());
+        }
+        return mapNames;
+    }
+
 }

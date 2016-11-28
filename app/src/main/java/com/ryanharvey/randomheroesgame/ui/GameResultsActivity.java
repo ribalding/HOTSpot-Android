@@ -131,8 +131,8 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
             public void onResponse(Call call, Response response) throws IOException {
                 allHeroes.setAllHeroes(gs.processHeroes(response));
 
-                teamA = allHeroes.generateTeam(generateSelectedHeroes(teamAChoices), teamRestrictionIsOn);
-                teamB = allHeroes.generateTeam(generateSelectedHeroes(teamBChoices), teamRestrictionIsOn);
+                teamA = allHeroes.generateTeam(teamAChoices, teamRestrictionIsOn);
+                teamB = allHeroes.generateTeam(teamBChoices, teamRestrictionIsOn);
 
                 if (globalRestrictionIsOn) {
                     allHeroes.globalRestrict(teamA, teamB);
@@ -216,15 +216,6 @@ public class GameResultsActivity extends AppCompatActivity implements View.OnCli
         mapResultTextView.setText(selectedMap.getPrimaryName());
     }
 
-    public ArrayList<Hero> generateSelectedHeroes(ArrayList<String> choices){
-        ArrayList<Hero> selectedHeroes = new ArrayList<>();
-        for (String choice : choices){
-            if(!choice.equalsIgnoreCase(Constants.NONE)){
-                selectedHeroes.add(allHeroes.getHeroByName(choice));
-            }
-        }
-        return selectedHeroes;
-    }
 
     @Override
     public void onClick(View view) {

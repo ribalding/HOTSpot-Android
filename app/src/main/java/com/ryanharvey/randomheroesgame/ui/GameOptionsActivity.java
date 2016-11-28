@@ -27,6 +27,7 @@ import okhttp3.Response;
 
 import com.ryanharvey.randomheroesgame.Constants.Constants;
 import com.ryanharvey.randomheroesgame.GameService;
+import com.ryanharvey.randomheroesgame.Models.AllGameMaps;
 import com.ryanharvey.randomheroesgame.Models.AllHeroes;
 import com.ryanharvey.randomheroesgame.Models.GameMap;
 import com.ryanharvey.randomheroesgame.R;
@@ -54,7 +55,7 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
     private GameService gs = new GameService();
     private AllHeroes allHeroes = new AllHeroes();
     private ArrayList<String> allHeroNames;
-    private ArrayList<GameMap> allMaps;
+    private AllGameMaps allMaps;
     private ArrayList<String> allMapNames;
     private SharedPreferences.Editor editor;
     private ProgressDialog dialog;
@@ -144,8 +145,8 @@ public class GameOptionsActivity extends AppCompatActivity implements View.OnCli
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                allMaps = gs.processMaps(response);
-                allMapNames = gs.getAllMapNames(allMaps);
+                allMaps = new AllGameMaps(gs.processMaps(response));
+                allMapNames = allMaps.getAllMapNames();
                 final ArrayAdapter<String> mapSpinnerAdapter = new ArrayAdapter<>(GameOptionsActivity.this, android.R.layout.simple_spinner_dropdown_item, allMapNames);
 
                 GameOptionsActivity.this.runOnUiThread(new Runnable(){
