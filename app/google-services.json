@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "560769959994",
+    "firebase_url": "https://hotspot-36092.firebaseio.com",
+    "project_id": "hotspot-36092",
+    "storage_bucket": "hotspot-36092.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560769959994:android:abb386b4bb59e452",
+        "android_client_info": {
+          "package_name": "com.ryanharvey.randomheroesgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "560769959994-fi262to90a93vbhvhhq97gufpcb8eo30.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCp8gppEurkbVVMIqtgXD6RPwrnygSU3PQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

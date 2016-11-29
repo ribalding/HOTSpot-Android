@@ -37,7 +37,6 @@ public class MMRService {
         JSONObject unrankedDraftRankingsJSONObject = null;
         try {
             JSONObject userJSONObject = new JSONObject(response.body().string());
-            Log.d("TESTOBJECT", userJSONObject.toString());
             JSONArray leaderboardRankingsJSONArray = userJSONObject.getJSONArray("LeaderboardRankings");
             for (int i = 0; i < leaderboardRankingsJSONArray.length(); i++) {
                 JSONObject gameMode = leaderboardRankingsJSONArray.getJSONObject(i);
@@ -53,12 +52,14 @@ public class MMRService {
             }
 
             String name = userJSONObject.getString("Name");
+            String playerID = userJSONObject.getString("PlayerID");
             String quickMatchRanking = (quickMatchRankingsJSONObject == null) ? "Not Available" : quickMatchRankingsJSONObject.get("CurrentMMR").toString();
             String heroLeagueRanking = (heroLeagueRankingsJSONObject == null) ? "Not Available" : heroLeagueRankingsJSONObject.get("CurrentMMR").toString();
             String teamLeagueRanking = (teamLeagueRankingsJSONObject == null) ? "Not Available" : teamLeagueRankingsJSONObject.get("CurrentMMR").toString();
             String unrankedDraftRanking = (unrankedDraftRankingsJSONObject == null) ? "Not Available" : unrankedDraftRankingsJSONObject.get("CurrentMMR").toString();
 
             newUser.setName(name);
+            newUser.setPlayerID(playerID);
             newUser.setQuickMatchMMR(quickMatchRanking);
             newUser.setHeroLeagueMMR(heroLeagueRanking);
             newUser.setTeamLeagueMMR(teamLeagueRanking);

@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.ryanharvey.randomheroesgame.Constants.Constants;
 import com.ryanharvey.randomheroesgame.MMRService;
 import com.ryanharvey.randomheroesgame.Models.User;
 import com.ryanharvey.randomheroesgame.R;
@@ -34,12 +37,15 @@ public class MMRResultsActivity extends AppCompatActivity implements View.OnClic
 
     private MMRService mmrs = new MMRService();
     private ProgressDialog dialog;
+    private DatabaseReference rootDatabaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mmr_results);
         ButterKnife.bind(this);
+
+        rootDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
         String name = getIntent().getStringExtra("nameInput");
         String number = getIntent().getStringExtra("numberInput");
@@ -72,6 +78,8 @@ public class MMRResultsActivity extends AppCompatActivity implements View.OnClic
                             teamLeagueTextView.setText(getString(R.string.team_league_colon, user.getTeamLeagueMMR()));
                             unrankedDraftTextView.setText(getString(R.string.unranked_draft_colon, user.getUnrankedDraftMMR()));
                             dialog.dismiss();
+
+                            rootDatabaseReference.child(Constants.USERS_FIREBASE_REFERENCE).child(user.getPlayerID()).setValue(user);
                         } else {
                             Toast.makeText(getApplicationContext(), getString(R.string.user_not_found), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MMRResultsActivity.this, MMRInputActivity.class);
