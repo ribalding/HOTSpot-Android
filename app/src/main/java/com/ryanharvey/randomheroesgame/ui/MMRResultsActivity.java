@@ -19,6 +19,10 @@ import com.ryanharvey.randomheroesgame.Models.User;
 import com.ryanharvey.randomheroesgame.R;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -79,7 +83,14 @@ public class MMRResultsActivity extends AppCompatActivity implements View.OnClic
                             unrankedDraftTextView.setText(getString(R.string.unranked_draft_colon, user.getUnrankedDraftMMR()));
                             dialog.dismiss();
 
+                            String currentDateTime = getCurrentDateTime();
+
                             rootDatabaseReference.child(Constants.USERS_FIREBASE_REFERENCE).child(user.getPlayerID()).setValue(user);
+                            rootDatabaseReference.child(Constants.USERS_FIREBASE_REFERENCE).child(user.getPlayerID()).child("mmrHistory").child(currentDateTime).child("quickMatchMMR").setValue(user.getQuickMatchMMR());
+                            rootDatabaseReference.child(Constants.USERS_FIREBASE_REFERENCE).child(user.getPlayerID()).child("mmrHistory").child(currentDateTime).child("unrankedDraftMMR").setValue(user.getUnrankedDraftMMR());
+                            rootDatabaseReference.child(Constants.USERS_FIREBASE_REFERENCE).child(user.getPlayerID()).child("mmrHistory").child(currentDateTime).child("heroLeagueMMR").setValue(user.getHeroLeagueMMR());
+                            rootDatabaseReference.child(Constants.USERS_FIREBASE_REFERENCE).child(user.getPlayerID()).child("mmrHistory").child(currentDateTime).child("teamLeagueMMR").setValue(user.getTeamLeagueMMR());
+
                         } else {
                             Toast.makeText(getApplicationContext(), getString(R.string.user_not_found), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MMRResultsActivity.this, MMRInputActivity.class);
@@ -96,5 +107,11 @@ public class MMRResultsActivity extends AppCompatActivity implements View.OnClic
         if(view == mmrResultsBackButton){
             onBackPressed();
         }
+    }
+
+    public String getCurrentDateTime(){
+        DateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.US);
+        Date currentDateTime = new Date();
+        return dateFormat.format(currentDateTime);
     }
 }

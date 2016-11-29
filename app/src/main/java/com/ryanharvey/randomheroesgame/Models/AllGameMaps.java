@@ -1,5 +1,6 @@
 package com.ryanharvey.randomheroesgame.Models;
 
+import com.ryanharvey.randomheroesgame.Constants.Constants;
 import com.ryanharvey.randomheroesgame.MathService;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class AllGameMaps {
     //Get All Map Names
     public ArrayList<String> getAllMapNames(){
         ArrayList<String> mapNames = new ArrayList<>();
-        mapNames.add("None");
+        mapNames.add(Constants.NONE);
         for(GameMap map : this.allMaps){
             mapNames.add(map.getPrimaryName());
         }

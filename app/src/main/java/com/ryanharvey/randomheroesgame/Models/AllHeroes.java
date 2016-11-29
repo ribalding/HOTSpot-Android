@@ -81,7 +81,7 @@ public class AllHeroes {
     }
 
     //Get Filtered Heroes
-    public ArrayList<Hero> getFilteredHeroes(ArrayList<String> filters){
+    private ArrayList<Hero> getFilteredHeroes(ArrayList<String> filters){
 
         ArrayList<Hero> filteredHeroes = new ArrayList<>();
         for(Hero hero : this.allHeroesArrayList){
@@ -99,7 +99,7 @@ public class AllHeroes {
     }
 
     //Get Hero By Name
-    public Hero getHeroByName(String name){
+    private Hero getHeroByName(String name){
         Hero newHero = new Hero();
         for(Hero hero: this.allHeroesArrayList){
             if(hero.getPrimaryName().equalsIgnoreCase(name)){
@@ -128,7 +128,7 @@ public class AllHeroes {
         return team;
     }
 
-    public Hero getWeightedHero(ArrayList<Hero> team) {
+    private Hero getWeightedHero(ArrayList<Hero> team) {
         Integer warrior = 0;
         Integer assassin = 0;
         Integer spec = 0;
@@ -169,7 +169,8 @@ public class AllHeroes {
         }
     }
 
-    public ArrayList<Hero> replaceMatchingHeroes (ArrayList<Hero> team, ArrayList<Hero> otherTeam) {
+    //Replace Matching Heroes
+    private ArrayList<Hero> replaceMatchingHeroes (ArrayList<Hero> team, ArrayList<Hero> otherTeam) {
         team.removeAll(otherTeam);
         while (team.size() < 5) {
             Hero newHero = this.getWeightedHero(team);
@@ -179,6 +180,7 @@ public class AllHeroes {
         return team;
     }
 
+    //Global Restrict
     public void globalRestrict(ArrayList<Hero> teamA, ArrayList<Hero> teamB) {
         if (!Collections.disjoint(teamA, teamB)) {
             int coinFlip = MathService.generateRandomNumber(2);
@@ -190,7 +192,7 @@ public class AllHeroes {
         }
     }
 
-    public ArrayList<Hero> generateSelectedHeroes(ArrayList<String> choices){
+    private ArrayList<Hero> generateSelectedHeroes(ArrayList<String> choices){
         ArrayList<Hero> selectedHeroes = new ArrayList<>();
         for (String choice : choices){
             if(!choice.equalsIgnoreCase(Constants.NONE)){
