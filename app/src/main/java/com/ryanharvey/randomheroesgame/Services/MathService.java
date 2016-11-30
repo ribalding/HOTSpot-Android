@@ -1,4 +1,4 @@
-package com.ryanharvey.randomheroesgame;
+package com.ryanharvey.randomheroesgame.Services;
 
 import java.util.Random;
 

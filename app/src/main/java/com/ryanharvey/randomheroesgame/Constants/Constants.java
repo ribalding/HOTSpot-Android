@@ -14,4 +14,5 @@ public class Constants {
     public static final String HOTSLOGS_HERO_BASE_URL = "http://www.hotslogs.com/Sitewide/HeroDetails?Hero=";
     public static final String USERS_FIREBASE_REFERENCE = "users";
     public static final String DATE_FORMAT = "dd-MM-yy HH:mm:ss";
+    public static final String MMR_HISTORY = "mmrHistory";
 }

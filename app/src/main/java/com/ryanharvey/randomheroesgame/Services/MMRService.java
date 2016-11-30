@@ -1,12 +1,19 @@
-package com.ryanharvey.randomheroesgame;
+package com.ryanharvey.randomheroesgame.Services;
 
 import android.util.Log;
 
 import com.ryanharvey.randomheroesgame.Constants.Constants;
+import com.ryanharvey.randomheroesgame.Models.MMR;
+import com.ryanharvey.randomheroesgame.Models.MMRSet;
 import com.ryanharvey.randomheroesgame.Models.User;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -30,7 +37,7 @@ public class MMRService {
     }
 
     public User processUser(Response response){
-        User newUser = new User();
+        User user;
         JSONObject quickMatchRankingsJSONObject = null;
         JSONObject heroLeagueRankingsJSONObject = null;
         JSONObject teamLeagueRankingsJSONObject = null;
@@ -58,17 +65,27 @@ public class MMRService {
             String teamLeagueRanking = (teamLeagueRankingsJSONObject == null) ? "Not Available" : teamLeagueRankingsJSONObject.get("CurrentMMR").toString();
             String unrankedDraftRanking = (unrankedDraftRankingsJSONObject == null) ? "Not Available" : unrankedDraftRankingsJSONObject.get("CurrentMMR").toString();
 
-            newUser.setName(name);
-            newUser.setPlayerID(playerID);
-            newUser.setQuickMatchMMR(quickMatchRanking);
-            newUser.setHeroLeagueMMR(heroLeagueRanking);
-            newUser.setTeamLeagueMMR(teamLeagueRanking);
-            newUser.setUnrankedDraftMMR(unrankedDraftRanking);
+            String currentDateTime = getCurrentDateTime();
+
+            MMR qm = new MMR("Quick Match", quickMatchRanking, currentDateTime);
+            MMR hl = new MMR("Hero League", heroLeagueRanking, currentDateTime);
+            MMR ud = new MMR("Unranked Draft", unrankedDraftRanking, currentDateTime);
+            MMR tl = new MMR ("Team League", teamLeagueRanking, currentDateTime);
+
+            MMRSet currentSet = new MMRSet(hl, tl, qm, ud, currentDateTime);
+            user = new User(playerID, name, currentSet);
 
         } catch (Exception e){
+            user = null;
             e.printStackTrace();
         }
 
-        return newUser;
+        return user;
+    }
+
+    public String getCurrentDateTime(){
+        DateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.US);
+        Date currentDateTime = new Date();
+        return dateFormat.format(currentDateTime);
     }
 }

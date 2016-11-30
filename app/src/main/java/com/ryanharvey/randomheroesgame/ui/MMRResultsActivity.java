@@ -5,16 +5,18 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.ryanharvey.randomheroesgame.Constants.Constants;
-import com.ryanharvey.randomheroesgame.MMRService;
+import com.ryanharvey.randomheroesgame.Services.MMRService;
 import com.ryanharvey.randomheroesgame.Models.User;
 import com.ryanharvey.randomheroesgame.R;
 
@@ -41,7 +43,7 @@ public class MMRResultsActivity extends AppCompatActivity implements View.OnClic
 
     private MMRService mmrs = new MMRService();
     private ProgressDialog dialog;
-    private DatabaseReference rootDatabaseReference;
+    private DatabaseReference usersDatabaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,7 @@ public class MMRResultsActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_mmr_results);
         ButterKnife.bind(this);
 
-        rootDatabaseReference = FirebaseDatabase.getInstance().getReference();
+        usersDatabaseReference = FirebaseDatabase.getInstance().getReference().child(Constants.USERS_FIREBASE_REFERENCE);
 
         String name = getIntent().getStringExtra("nameInput");
         String number = getIntent().getStringExtra("numberInput");
@@ -77,19 +79,13 @@ public class MMRResultsActivity extends AppCompatActivity implements View.OnClic
                     public void run() {
                         if(user.getName() != null) {
                             userNameTextView.setText(user.getName());
-                            heroLeagueTextView.setText(getString(R.string.hero_league_colon, user.getHeroLeagueMMR()));
-                            quickMatchTextView.setText(getString(R.string.quick_match_colon, user.getQuickMatchMMR()));
-                            teamLeagueTextView.setText(getString(R.string.team_league_colon, user.getTeamLeagueMMR()));
-                            unrankedDraftTextView.setText(getString(R.string.unranked_draft_colon, user.getUnrankedDraftMMR()));
+                            heroLeagueTextView.setText(getString(R.string.hero_league_colon, user.getHeroLeagueMMR().getNumber()));
+                            quickMatchTextView.setText(getString(R.string.quick_match_colon, user.getQuickMatchMMR().getNumber()));
+                            teamLeagueTextView.setText(getString(R.string.team_league_colon, user.getTeamLeagueMMR().getNumber()));
+                            unrankedDraftTextView.setText(getString(R.string.unranked_draft_colon, user.getUnrankedDraftMMR().getNumber()));
                             dialog.dismiss();
 
-                            String currentDateTime = getCurrentDateTime();
-
-                            rootDatabaseReference.child(Constants.USERS_FIREBASE_REFERENCE).child(user.getPlayerID()).setValue(user);
-                            rootDatabaseReference.child(Constants.USERS_FIREBASE_REFERENCE).child(user.getPlayerID()).child("mmrHistory").child(currentDateTime).child("quickMatchMMR").setValue(user.getQuickMatchMMR());
-                            rootDatabaseReference.child(Constants.USERS_FIREBASE_REFERENCE).child(user.getPlayerID()).child("mmrHistory").child(currentDateTime).child("unrankedDraftMMR").setValue(user.getUnrankedDraftMMR());
-                            rootDatabaseReference.child(Constants.USERS_FIREBASE_REFERENCE).child(user.getPlayerID()).child("mmrHistory").child(currentDateTime).child("heroLeagueMMR").setValue(user.getHeroLeagueMMR());
-                            rootDatabaseReference.child(Constants.USERS_FIREBASE_REFERENCE).child(user.getPlayerID()).child("mmrHistory").child(currentDateTime).child("teamLeagueMMR").setValue(user.getTeamLeagueMMR());
+                            usersDatabaseReference.child(user.getPlayerID()).setValue(user);
 
                         } else {
                             Toast.makeText(getApplicationContext(), getString(R.string.user_not_found), Toast.LENGTH_SHORT).show();
@@ -107,11 +103,5 @@ public class MMRResultsActivity extends AppCompatActivity implements View.OnClic
         if(view == mmrResultsBackButton){
             onBackPressed();
         }
-    }
-
-    public String getCurrentDateTime(){
-        DateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.US);
-        Date currentDateTime = new Date();
-        return dateFormat.format(currentDateTime);
     }
 }

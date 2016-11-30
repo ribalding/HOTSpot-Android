@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
-import com.ryanharvey.randomheroesgame.GameService;
+import com.ryanharvey.randomheroesgame.Services.GameService;
 import com.ryanharvey.randomheroesgame.Models.GameMap;
 import com.ryanharvey.randomheroesgame.Models.Hero;
 import com.ryanharvey.randomheroesgame.R;

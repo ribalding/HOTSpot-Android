@@ -1,7 +1,7 @@
 package com.ryanharvey.randomheroesgame.Models;
 
 import com.ryanharvey.randomheroesgame.Constants.Constants;
-import com.ryanharvey.randomheroesgame.MathService;
+import com.ryanharvey.randomheroesgame.Services.MathService;
 
 import java.util.ArrayList;
 

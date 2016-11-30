@@ -26,10 +26,9 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 import com.ryanharvey.randomheroesgame.Constants.Constants;
-import com.ryanharvey.randomheroesgame.GameService;
+import com.ryanharvey.randomheroesgame.Services.GameService;
 import com.ryanharvey.randomheroesgame.Models.AllGameMaps;
 import com.ryanharvey.randomheroesgame.Models.AllHeroes;
-import com.ryanharvey.randomheroesgame.Models.GameMap;
 import com.ryanharvey.randomheroesgame.R;
 
 public class GameOptionsActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {

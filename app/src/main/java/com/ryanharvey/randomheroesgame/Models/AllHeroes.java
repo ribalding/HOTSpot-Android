@@ -1,12 +1,11 @@
 package com.ryanharvey.randomheroesgame.Models;
 
 import com.ryanharvey.randomheroesgame.Constants.Constants;
-import com.ryanharvey.randomheroesgame.MathService;
+import com.ryanharvey.randomheroesgame.Services.MathService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Random;
 
 /**
  * Created by Ryan on 11/9/2016.
