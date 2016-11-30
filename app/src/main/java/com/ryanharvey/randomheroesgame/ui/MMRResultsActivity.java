@@ -74,6 +74,8 @@ public class MMRResultsActivity extends AppCompatActivity implements View.OnClic
             public void onResponse(Call call, Response response) throws IOException {
 
                 final User user = mmrs.processUser(response);
+                final DatabaseReference userReference = usersDatabaseReference.child(user.getPlayerID());
+
                 MMRResultsActivity.this.runOnUiThread(new Runnable(){
                     @Override
                     public void run() {
@@ -85,13 +87,28 @@ public class MMRResultsActivity extends AppCompatActivity implements View.OnClic
                             unrankedDraftTextView.setText(getString(R.string.unranked_draft_colon, user.getUnrankedDraftMMR().getNumber()));
                             dialog.dismiss();
 
-                            usersDatabaseReference.child(user.getPlayerID()).setValue(user);
-
                         } else {
                             Toast.makeText(getApplicationContext(), getString(R.string.user_not_found), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MMRResultsActivity.this, MMRInputActivity.class);
                             startActivity(intent);
                         }
+                    }
+                });
+
+                userReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()){
+                            User foundUser = dataSnapshot.getValue(User.class);
+                            user.getMMRHistory().addAll(foundUser.getMMRHistory());
+                        }
+                        userReference.setValue(user);
+                        userReference.removeEventListener(this);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
                     }
                 });
             }

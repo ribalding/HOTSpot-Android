@@ -12,8 +12,17 @@ public class User {
     private MMR quickMatchMMR;
     private MMR heroLeagueMMR;
     private MMR teamLeagueMMR;
+
+    public ArrayList<MMRSet> getMMRHistory() {
+        return mmrHistory;
+    }
+
+    public void setMMRHistory(ArrayList<MMRSet> mmrHistory) {
+        this.mmrHistory = mmrHistory;
+    }
+
     private MMR unrankedDraftMMR;
-    private ArrayList<MMRSet> mmrHistory = new ArrayList<MMRSet>();
+    private ArrayList<MMRSet> mmrHistory = new ArrayList<>();
 
     public User(){}
 

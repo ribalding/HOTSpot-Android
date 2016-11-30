@@ -37,11 +37,13 @@ public class MMRService {
     }
 
     public User processUser(Response response){
+
         User user;
         JSONObject quickMatchRankingsJSONObject = null;
         JSONObject heroLeagueRankingsJSONObject = null;
         JSONObject teamLeagueRankingsJSONObject = null;
         JSONObject unrankedDraftRankingsJSONObject = null;
+
         try {
             JSONObject userJSONObject = new JSONObject(response.body().string());
             JSONArray leaderboardRankingsJSONArray = userJSONObject.getJSONArray("LeaderboardRankings");
@@ -83,7 +85,7 @@ public class MMRService {
         return user;
     }
 
-    public String getCurrentDateTime(){
+    private String getCurrentDateTime(){
         DateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.US);
         Date currentDateTime = new Date();
         return dateFormat.format(currentDateTime);
