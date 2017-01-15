@@ -11,4 +11,5 @@ and Unranked Draft.  All that is required is that the user enters their Blizzard
 HOTSpot is in no way affiliated with Blizzard and the creators do not claim ownership over any of Blizzard's copyrighted content.
 
 Copyright (c) 2017 Ryan Harvey
+
 Art and Graphics by Toby Twiss
