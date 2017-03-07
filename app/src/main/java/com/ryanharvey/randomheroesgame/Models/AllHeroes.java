@@ -145,20 +145,23 @@ public class AllHeroes {
             }
         }
 
-        ArrayList<Integer> nums = new ArrayList<Integer>(Arrays.asList(warrior, assassin, spec, support));
         ArrayList<String> heroFilters = new ArrayList<>();
 
-        for(int i = 0; i < 4; i++) {
-            if (i == 0 && nums.get(i) > 1) {
+            if (warrior > 1) {
                 heroFilters.add("Warrior");
-            } else if (i== 1 && assassin > 1) {
+            }
+
+            if (assassin > 1) {
                 heroFilters.add("Assassin");
-            } else if (i == 2 && spec > 0) {
+            }
+
+            if (spec > 0) {
                 heroFilters.add("Specialist");
-            } else if (i == 3 && support > 1) {
+            }
+
+            if (support > 1) {
                 heroFilters.add("Support");
             }
-        }
 
         ArrayList<Hero> filteredHeroes = this.getFilteredHeroes(heroFilters);
         if(filteredHeroes.size() > 0) {
